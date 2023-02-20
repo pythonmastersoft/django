@@ -1,0 +1,33 @@
+.all-elements-container{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    gap: 0.5rem;
+    padding: 0.6rem;
+    
+}
+
+.element{
+    padding:0.7rem;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    border:1px dotted $border-color ;
+    border-radius: 0.3rem;
+    min-width:99px;
+    i{
+        margin-bottom: 0.5rem;
+    }
+    span{
+        text-transform: capitalize;
+    }
+    &:hover{
+        color:$primary-main;
+        border:1px solid $primary-main ;
+        cursor: pointer;
+    }
+} 
+.element-horizontal{
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+}   

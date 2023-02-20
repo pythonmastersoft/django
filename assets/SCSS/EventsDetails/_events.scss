@@ -1,0 +1,22 @@
+﻿.event-section .event-cards .event-details, #eventRegistration .event-details{
+    display:flex;
+    /*//flex-wrap:wrap;*/
+    align-items:center;
+    border: 1px solid #e2eefd;
+    padding: 12px;/* justify-content:center; */
+
+}
+
+.event-section {padding:0 0 30px; overflow:inherit}
+
+.event-section .event-cards .event-img, #eventRegistration .event-img{height: 140px;width: 30%;margin-right: 12px;}
+
+.event-section .event-cards .event-txt, #eventRegistration .event-txt{width:70%}
+
+.event-section .event-cards h4, #eventRegistration h4  {font-size: 16px;}
+
+.event-section .event-cards p, #eventRegistration p {font-size: 12px;margin-bottom: 8px;}
+
+.event-section .event-cards h5, #eventRegistration h5  {font-size: 14px;}
+
+.event-section .event-cards h5 span,  #eventRegistration h5 span {margin:0 3px;}

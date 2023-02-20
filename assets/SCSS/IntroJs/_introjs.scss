@@ -1,0 +1,52 @@
+.introjs-tooltip-title{
+    color:$purple;
+    font-size:16px;
+}
+
+
+.introjs-button{
+    font-size: 0.7rem ;
+    font-weight: 600 ;
+    font-family: 'Nunito',sans-serif;
+    background: white !important;
+    color:gray ;
+    &:focus-visible{
+        padding: 0.5rem 1rem;       
+    }
+    &:focus{
+        box-shadow: 0 0 0 0.2rem rgba($purple,0.5);
+        color: $purple;        
+        border: 1px solid $purple;
+    }
+    &:hover{
+        border-color:$purple;
+        color:$purple;        
+    } 
+}
+
+// .introjs-button.introjs-prevbutton{
+    
+// }
+
+// .introjs-button.introjs-nextbutton{
+
+// } 
+
+a.introjs-skipbutton{
+    &:hover{
+        color:$red;
+    }   
+}
+
+.introjs-progressbar{
+    background-color: $purple;
+}
+
+.introjs-tooltip{
+    min-width: 300px;
+      .introjs-tooltiptext{
+          span{
+              color: $purple;
+          }
+      }
+}

@@ -1,0 +1,68 @@
+
+{% extends 'HR/base.html' %}
+
+{% load static%}
+{% block content %}
+
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-header">
+                <h4>Candidate Master Table</h4>
+            </div>
+            <div class="card-body p-0">
+                <div class="table-responsive">
+                <form method="post">
+                    <table id="choose-address-table" class="ui-widget ui-widget-content table table-striped ">
+                        <tr>
+                            <!--  <th style="text-align: center">Sl.No</th>-->
+                            <th style="text-align: center">Applied on</th>
+                            <th style="text-align: center">Candidate Name</th>
+                            <th style="text-align: center">Email</th>
+                            <th style="text-align: center">Years of Experience</th>
+                            <th style="text-align: center">Years of Relevant Experience</th>
+                            <th style="text-align: center">Department</th>
+                            <th style="text-align: center">Position</th>
+                            <th style="text-align: center">Current LPA</th>
+                            <th style="text-align: center">Expected LPA</th>
+                            <th style="text-align: center">Contact Number</th>
+                            <th style="text-align: center">Resume</th>
+
+                        </tr>
+
+
+                        {% for obj in data %}
+
+                        <tr>
+
+                            <td style="text-align: left" class="nr"> {{obj.created_at}}</td>
+                            <td style="text-align: left" class="nr"> {{obj.your_name}}</td>
+                            <td style="text-align: left" >{{obj.email}}</td>
+                            <td style="text-align: center" class="nr">{{obj.years_of_experience}}</td>
+                            <td style="text-align: center" class="nr">{{obj.years_of_relevant_experience}}</td>
+                            <td style="text-align: center" class="nr">{{obj.department}}</td>
+                            <td style="text-align: center" class="nr">{{obj.position}}</td>
+                            <td style="text-align: center" class="nr">{{obj.current_ctc}}</td>
+                            <td style="text-align: center" class="nr">{{obj.expected_ctc}}</td>
+                            <td style="text-align: center" class="align-middle nr">{{obj.mobile_number}}</td>
+                            <td style="text-align: center" class="nr"><a class="btn btn-primary" href="/get_pdf2/{{obj.id}}">View</a></td>
+                            <!--<td><a onclick="function()" class="btn btn-primary use-address">Select</a></td>-->
+
+                        </tr>
+                        {% endfor %}
+                    </table>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<hr>
+
+
+
+
+<!--    <p id="demo"></p>-->
+
+{% endblock %}

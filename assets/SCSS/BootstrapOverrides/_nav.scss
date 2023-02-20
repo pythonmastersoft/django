@@ -1,0 +1,34 @@
+.dropdown.active-link{    
+    a.lvl-1-nav{
+        background-color: #f0f3ff !important;
+        i,span{
+            color: #6777ef !important;
+        }        
+    }
+}
+.nav-link.lvl-2-nav.active-sub-link{
+    color: #6777ef !important;
+}
+
+.nav-link{
+    span{
+        font-weight: 500 !important;
+    }    
+} 
+
+// .role-menu-height{
+   
+// }
+
+.role-menu-header{
+    background-color: #6777ef !important;
+    color: #fff;
+    position: sticky;
+    top: 0;
+    z-index: 1080;
+}
+.menuBody{
+    border: 1px solid #6777ef;
+    height: 400px;
+    overflow-y: auto;
+}

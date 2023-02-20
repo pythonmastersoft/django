@@ -1,0 +1,106 @@
+
+{% extends 'HR/base.html' %}
+
+{% load static%}
+
+
+{% block content %}
+
+
+<!--table showing the data of candidate for next round-->
+{% if scheduled_interview_all_object %}
+
+<div class="row">
+    <div class="col-12">
+
+        <div class="card">
+            <div class="card-header">
+                <h4>Scheduled Interviews </h4>
+            </div>
+            <div class="card-body p-0">
+                <div class="table-responsive">
+                    <table id="second-table" class="ui-widget ui-widget-content table table-striped ">
+                        <tr>
+                            <th style="text-align: center" >Sl.No</th>
+                            <th style="text-align: center">Candidate Name</th>
+                            <th style="text-align: center">Department</th>
+                            <th style="text-align: center">Position</th>
+                            <th style="text-align: center">Round 1</th>
+                            <th style="text-align: center">Round 2</th>
+                            <th style="text-align: center">Machine Test</th>
+                            <th style="text-align: center">HR Round</th>
+                            <th style="text-align: center">Offer Letter </th>
+                            <th style="text-align: center">Action </th>
+                        </tr>
+
+                        {% for obj in scheduled_interview_all_object %}
+                        <tr>
+                            <td style="text-align: center"></td>
+                            <td style="text-align: center" class="nr">{{obj.name}}</td>
+                            <td style="text-align: center" class="align-middle nr">{{obj.department}}</td>
+                            <td style="text-align: center" class="align-middle nr">{{obj.position}}</td>
+
+
+                            {% if obj.round == 'Round 1' %}
+                            <td><button type="button" class="btn btn-success">Scheduled</button></td>
+                             {% else %}
+                            <td style="text-align: center"><button class="btn btn-primary">{{obj.round_two}}</button></td>
+                            {% endif %}
+
+                            {% if obj.round_two == 'Round 2' %}
+                            <td style="text-align: center"><button class="btn btn-success">Scheduled<span class="badge badge-transparent"></span></button></td>
+                            {% else %}
+                            <td style="text-align: center"><a href="/hr_view/nextround_interview_scheduling/{{obj.id}}"><button class="btn btn-primary">{{obj.round_two}}</button></a></td>
+                            {% endif %}
+
+                            {% if obj.machine_test == 'Machine Test' %}
+                            <td style="text-align: center"><button class="btn btn-success">Scheduled</button></td>
+                             {% else %}
+                            <td style="text-align: center"><a href="/hr_view/machine_test_interview_scheduling/{{obj.id}}"><button class="btn btn-primary">{{obj.machine_test}}</button></a></td>
+                              {% endif %}
+
+                            {% if obj.hr_round == 'HR Round' %}
+                            <td style="text-align: center"><button class="btn btn-success">Scheduled</button></td>
+                            {% else %}
+                            <td style="text-align: center"><a href="/hr_view/HR_round_interview_scheduling/{{obj.id}}"><button class="btn btn-primary">{{obj.hr_round}}</button></a></td>
+                            {% endif %}
+                            <td style="text-align: center"><a href="/hr_view/generate_offer_letter/{{obj.id}}"><button class="btn btn-primary">Generate Offer Letter</button></a></td>
+
+                            <!--<td><button class="btn btn-primary" onclick="removeRow(this)">Remove</button></td>-->
+                            <td><a href="hr_view/scheduled_interview/remove/{{obj.id}}"><button class="btn btn-danger">Remove</button></a></td>
+                        </tr>
+
+                        {% endfor %}
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!--else part to show when the data is not present -->
+{% else %}
+
+<h5>No Scheduled Interviews to show</h5>
+<div class="text-center">
+    <img src="https://img.freepik.com/free-vector/no-data-concept-illustration_114360-536.jpg?w=2000" class="img-fluid" alt="Responsive image" width="700" height="560">
+</div>
+{% endif%}
+<hr>
+
+
+<!--<script>-->
+<!--  function removeRow(btn) {-->
+<!--    // Get the row containing the button-->
+<!--    var row = btn.parentNode.parentNode;-->
+<!--    // Get the table-->
+<!--    var table = row.parentNode;-->
+<!--    // Delete the row-->
+<!--    table.removeChild(row);-->
+<!--  }-->
+<!--</script>-->
+
+
+{% endblock %}
+

@@ -1,0 +1,107 @@
+{% extends 'HR/base.html' %}
+
+{% block content %}
+
+
+{% load static %}
+{% load crispy_forms_tags %}
+
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport">
+  <title>Otika - Admin Dashboard Template</title>
+  <!-- General CSS Files -->
+  <link rel="stylesheet" href="{% static 'assets/css/app.min.css' %}">
+  <link rel="stylesheet" href="{% static 'assets/bundles/jquery-selectric/selectric.css' %}">
+  <!-- Template CSS -->
+  <link rel="stylesheet" href="{% static 'assets/css/style.css' %}">
+  <link rel="stylesheet" href="{% static 'assets/css/components.css' %}">
+  <!-- Custom style CSS -->
+  <link rel="stylesheet" href="{% static 'assets/css/custom.css' %}">
+  <link rel='shortcut icon' type='image/x-icon' href='assets/img/favicon.ico' />
+</head>
+
+<body>
+  <div class="loader"></div>
+  <div id="app">
+
+          <div class="col-12 col-sm-10 offset-sm-1 col-md-8 offset-md-2 col-lg-8 offset-lg-2 col-xl-8 offset-xl-2">
+            <div class="card card-primary">
+              <div class="card-header">
+                <h4>Register</h4>
+              </div>
+              <div class="card-body">
+
+                    <form action="" method="POST">
+                        {% csrf_token %}
+
+                            <div class="form-group">
+
+                                <div class="form-group">
+
+                                    {{form.username|as_crispy_field}}
+                                    {{form.first_name|as_crispy_field}}
+                                    {{form.last_name|as_crispy_field}}
+                                    {{form.email|as_crispy_field}}
+                                    {{form.phone_number|as_crispy_field}}
+                                    {{form.user_group|as_crispy_field}}
+                                    {{form.password1|as_crispy_field}}
+                                    {{form.password2|as_crispy_field}}
+                                </div>
+                                    {{ field.errors }}
+
+
+
+
+                             <div class="form-group">
+                                <button type="submit" class="btn btn-primary btn-lg btn-block">
+                                    Register
+                                </button>
+                            </div>
+
+                            </div>
+                    </form>
+
+
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+</body>
+
+</html>
+
+
+{% endblock %}
+
+
+
+
+
+
+
+
+
+
+
+<!--<h3>Register here</h3>-->
+<!--<hr>-->
+
+<!--<form action="" method="POST">-->
+<!--    {% csrf_token %}-->
+
+<!--    {% for field in form %}-->
+<!--        <div class="col-12 col-sm-10 offset-sm-1 col-md-8 offset-md-2 col-lg-8 offset-lg-2 col-xl-8 offset-xl-2">-->
+<!--            <p>{{ field.label }}: <br> {{ field }}</p>-->
+
+<!--            {% for error in field.errors %}-->
+<!--                <small style="color: red">{{ error }}</small>-->
+<!--            {% endfor %}-->
+<!--        </div>-->
+<!--    {% endfor %}-->
+<!--    <button type="submit">Register</button>-->
+<!--</form>-->

@@ -1,0 +1,71 @@
+
+{% extends 'HR/base.html' %}
+
+{% load static%}
+
+
+{% block content %}
+
+
+{% if all_objects %}
+<div class="row">
+    <div class="col-12">
+
+        <div class="card">
+            <div class="card-header">
+                <h4>Selected Candidates For Interview</h4>
+            </div>
+            <div class="card-body p-0">
+                <div class="table-responsive">
+                    <table id="second-table" class="ui-widget ui-widget-content table table-striped ">
+                        <tr>
+                            <th style="text-align: center" >Sl.No</th>
+                            <th style="text-align: center">Candidate Name</th>
+                            <th style="text-align: center">Email</th>
+                            <th style="text-align: center">Contact Number</th>
+                            <th style="text-align: center">Department</th>
+                            <th style="text-align: center">Position</th>
+                            <th style="text-align: center">Current CTC</th>
+                            <th style="text-align: center">Expected CTC</th>
+                            <th style="text-align: center">Resume</th>
+                            <th style="text-align: center">Schedule Interview</th>
+                            <th style="text-align: center">Action</th>
+                        </tr>
+
+                        {% for obj in all_objects %}
+                        <tr>
+                            <td style="text-align: center"></td>
+                            <td style="text-align: center" class="nr"> {{obj.your_name}}</td>
+                            <td style="text-align: center" class="align-middle nr">{{obj.email}}</td>
+                            <td style="text-align: center" class="align-middle nr">{{obj.contact_no}}</td>
+                            <td style="text-align: center" class="align-middle nr">{{obj.department}}</td>
+                            <td style="text-align: center" class="align-middle nr">{{obj.position}}</td>
+                            <td style="text-align: center" class="align-middle nr">{{obj.current_ctc}}</td>
+                            <td style="text-align: center" class="align-middle nr">{{obj.expected_ctc}}</td>
+                            <td style="text-align: center" class="nr"><a href="/get_pdf/{{obj.id}}" class="btn btn-primary">View</a></td>
+                            <td style="text-align: center"><a href="/hr_view/schedule/{{obj.id}}"><button id="" class="btn btn-primary">Schedule</button></a></td>
+                            <td><a href="/hr_view/selected_applicants/remove/{{obj.id}}"><button class="btn btn-danger">Remove</button></a></td>
+                        </tr>
+                        {% endfor %}
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!--else part to show when the data is not present -->
+{% else %}
+
+<h5>Please select some candidate for further process><a href="/hr_view/showapplicants/">Click Here</a></h5>
+<div class="text-center">
+    <img src="https://img.freepik.com/free-vector/no-data-concept-illustration_114360-536.jpg?w=2000" class="img-fluid" alt="Responsive image" width="700" height="560">
+</div>
+{% endif%}
+<hr>
+
+
+
+
+{% endblock %}

@@ -1,0 +1,30 @@
+﻿@media only screen and (max-width: 1920px) and (min-width: 1700px) {
+    .pieChart {
+        max-height: 400px !important;
+        max-width: 371px !important;
+        height: 373px !important;
+        width: 437px !important;
+    }
+}
+
+@media only screen and (max-width: 1200px) and (min-width: 1024px) {
+    .pieChart {
+        max-height: 400px !important;
+        height: 153px !important;
+        width: 158px !important;
+    }
+}
+
+@media only screen and (max-width: 820px) and (min-width: 768px) {
+    .pieChart {
+        max-height: 400px !important;
+        height: 152px !important;
+        width: 152px !important;
+    }
+}
+
+  .pieChart{
+       max-height: 400px !important;
+        height: 240px !important;
+         width: 240px !important;
+  }

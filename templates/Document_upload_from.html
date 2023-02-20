@@ -1,0 +1,228 @@
+{% load static %}
+<!doctype html>
+<html>
+  <head>
+
+    <meta charset="utf-8">
+
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <title>Document Upload Portal</title>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+
+   <style>
+
+    .bg-upload {
+  background-image: url('{% static 'B_img/upload_img.jpg' %}');
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+  </style>
+
+
+
+  </head>
+
+
+
+<body class="bg-upload">
+<div class="text-center" style="color: white; font-size: 2em; font-weight: bold; background-color: black; padding: 20px;">
+  Mastersoft Recruitment Portal
+</div>
+<br>
+
+
+
+<div class="col-12 col-sm-10 offset-sm-1 col-md-8 offset-md-2 col-lg-8 offset-lg-2 col-xl-8 offset-xl-2" style="width: 1100px;" >
+            <div class="card card-primary">
+              <div class="card-header">
+                <h4>Upload Documents</h4>
+                  Upload all the documents in .PDF Format Only
+              </div>
+              <div class="card-body">
+              <form onsubmit="message()">
+                <div class="mx-auto" style="width: 1300px;" >
+
+                    <div class="row g-4">
+                        <div class="mb-3 w-25 ">
+                            <label for="name" class="form-label">Your Name*</label>
+                            <input class="form-control" type="text" id="name" required placeholder="Full Name">
+                        </div>
+
+                         <div class="mb-3 w-25 ">
+                            <label for="name" class="form-label">Email*</label>
+                            <input class="form-control" type="Email" id="email" required placeholder="Enter your Email ">
+                        </div>
+
+                         <div class="mb-3 w-25 ">
+                            <label for="name" class="form-label">Mobile Number* </label>
+                            <input class="form-control" type="text" id="mobile_number" oninput="this.value=this.value.replace(/[^0-9]/g,'');" required placeholder="Mobile Number ">
+                        </div>
+                    </div>
+
+
+                    <div class="row g-4">
+                        <div class="mb-3 w-25 ">
+                            <label for="formFile" class="form-label">Address Proof* (.PDF Only)</label>
+                            <input class="form-control" type="file" id="Address_Proof" accept=".pdf" required>
+                        </div>
+
+                        <div class="mb-3 w-25 ">
+                            <label for="formFile" class="form-label">Pan Card* (.PDF Only)</label>
+                            <input class="form-control" type="file" id="pancard" accept=".pdf" required>
+                        </div>
+
+                    <div class="mb-3 w-25 ">
+                        <label for="formFile" class="form-label">Photo Identity Proof* (.PDF Only)</label>
+                        <input class="form-control" type="file" id="Photo_Identity_Proof" accept=".pdf" required>
+                    </div>
+
+
+                    </div>
+
+                    <div class="row g-4">
+                        <div class="mb-3 w-25 ">
+                        <label for="formFile" class="form-label">SSC Certificate* (.PDF Only)</label>
+                        <input class="form-control" type="file" id="SSC_Certificate" accept=".pdf" required>
+                    </div>
+
+                    <div class="mb-3 w-25 ">
+                        <label for="formFile" class="form-label">HSC Certificate (.PDF Only)</label>
+                        <input class="form-control" type="file" id="HSC_Certificate" accept=".pdf" >
+                        *If applicable
+                    </div>
+
+                        <div class="mb-3 w-25 ">
+                            <label for="formFile" class="form-label">Diploma Certificate </label>
+                            <input class="form-control" type="file" id="Diploma_Certificate" accept=".pdf" >
+                            *If applicable
+                        </div>
+
+
+                     </div>
+
+                   <div class="row g-4">
+
+                       <div class="mb-3 w-25 ">
+                            <label for="formFile" class="form-label">Degree Certificate</label>
+                            <input class="form-control" type="file" id="Degree_Certificate" accept=".pdf">
+                        </div>
+
+                    <div class="mb-3 w-25 ">
+                            <label for="formFile" class="form-label">PG Certificate</label>
+                            <input class="form-control" type="file" id="PG_Certificate" accept=".pdf">
+                            *If applicable
+                    </div>
+
+
+                    <div class="mb-3 w-25 ">
+                            <label for="formFile" class="form-label">College TC</label>
+                            <input class="form-control" type="file" id="College_TC" accept=".pdf">
+                            *If applicable
+                    </div>
+
+                   </div>
+
+                <div class="row g-4">
+
+                    <div class="mb-3 w-25 ">
+                        <label for="formFile" class="form-label">Passport Size Photograph (.jpg,jpeg,png)</label>
+                        <input class="form-control" type="file" id="Passport_Size_Photograph" >
+                    </div>
+
+                    <div class="mb-3 w-25 ">
+                        <label for="formFile" class="form-label">Bank Passbook</label>
+                        <input class="form-control" type="file" id="Bank_Passbook" accept=".pdf">
+                        *Scanned passbook front page or cancelled cheaque.
+                    </div>
+
+                <div class="mb-3 w-25 ">
+                        <label for="formFile" class="form-label">Internship Certificate</label>
+                        <input class="form-control" type="file" id="Internship_Certificate" accept=".pdf">
+                        *If applicable
+                    </div>
+                    </div>
+
+                <div class="row g-4">
+
+                    <div class="mb-3 w-25 ">
+                        <label for="formFile" class="form-label">Experience Certificate</label>
+                        <input class="form-control" type="file" id="Experience_Certificate" accept=".pdf">
+                    *Or Resignation letter applicable for experianced Employees
+                    </div>
+
+                    <div class="mb-3 w-25">
+                          <label for="formFileMultiple" class="form-label">Last 3 Salary Slips</label>
+                          <input class="form-control" type="file" id="Last_3_Salary_Slips" multiple accept=".pdf">
+                        *For Experianced Employees
+                    </div>
+
+                    <div class="mb-3 w-25 ">
+                        <label for="formFile" class="form-label">Form 16 </label>
+                        <input class="form-control" type="file" id="Form_16" accept=".pdf">
+                        *From Previous Employer.
+                    </div>
+
+
+                </div>
+
+                  <div class="row g-4">
+
+                    <div class="mb-3 w-25 ">
+                        <label for="formFile" class="form-label">Passport </label>
+                        <input class="form-control" type="file" id="Passport" accept=".pdf">
+                        *Applied in last 3 Years
+                    </div>
+
+                          <div class="mb-3 w-25 ">
+                            <label for="formFile" class="form-label">Covid Vaccination Certificate</label>
+                            <input class="form-control" type="file" id="Covid_Vaccination_Certificate">
+                        </div>
+
+                       <div class="mb-3 w-25 ">
+                            <label for="formFile" class="form-label">Medical Certificate</label>
+                            <input class="form-control" type="file" id="Medical_Certificate">
+                        </div>
+                  </div>
+
+
+
+                        <div class="mb-3 w-25 ">
+                            <label for="formFile" class="form-label">Police Verification Document </label>
+                            <input class="form-control" type="file" id="Police_Verification_Document">
+                            *For Passports older than 3 years.Please Apply here
+                            <a href="https://pcs.mahaonline.gov.in/" class="link-primary">https://pcs.mahaonline.gov.in/</a>
+                        </div>
+
+
+
+                  <div class="col-10">
+                      <div class="d-flex justify-content-center">
+                      <button type="submit" class="btn btn-primary">Submit</button>
+                  </div>
+            </div>
+            </div>
+
+        </form>
+        </div>
+       </div>
+</div>
+
+
+      <script>
+          function message(){
+          alert('Documents Submitted ')
+          }
+      </script>
+
+<script>
+  document.getElementById("mobile_number").addEventListener("input", function () {
+    this.value = this.value.slice(0, 10);
+  });
+</script>
+
+
+ </body>
+</html>

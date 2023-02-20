@@ -1,0 +1,18 @@
+.dropdown{
+    .dropdown-toggle{
+        &::after{
+            display: none;
+        }
+    }
+}
+
+
+
+
+.dashboardcode-bsmultiselect{
+    .dropdown-menu{
+        width:auto;
+        height: 400px;
+        overflow-y: auto;
+    }
+}

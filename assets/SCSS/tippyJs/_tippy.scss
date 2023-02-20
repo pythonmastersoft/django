@@ -1,0 +1,16 @@
+﻿    .tippy-box[data-theme~='otika'] {
+  background-color: $purple;
+  color: #fff;
+}
+        .tippy-box[data-theme~='otika'][data-placement^='top'] > .tippy-arrow::before {
+  border-top-color: $purple;
+}
+.tippy-box[data-theme~='otika'][data-placement^='bottom'] > .tippy-arrow::before {
+  border-bottom-color:  $purple;
+}
+.tippy-box[data-theme~='otika'][data-placement^='left'] > .tippy-arrow::before {
+  border-left-color:  $purple;
+}
+.tippy-box[data-theme~='otika'][data-placement^='right'] > .tippy-arrow::before {
+  border-right-color:  $purple;
+}

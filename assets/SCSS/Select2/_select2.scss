@@ -1,0 +1,37 @@
+.select2{
+    max-width:100%;
+    width: 100% !important;
+}
+
+.select2-selection__rendered{
+    font-size:14px;
+}
+
+
+.select2-dropdown {
+    border-color: #6777ef !important;
+    box-shadow: rgba(0,0,0,0.16) 0px 1px 4px;
+}
+
+.select2-results__option[aria-selected] {    
+    line-height: 20px;
+}
+
+.select2-container--default .select2-selection--multiple .select2-selection__choice, .select2-container--default .select2-results__option[aria-selected=true], .select2-container--default .select2-results__option--highlighted[aria-selected] {
+    background-color: #f0f3ff;
+    color: #6777ef;
+	
+}
+
+.select2-results__option {
+     padding: 6px; 
+} 
+
+.select2-container--default .select2-results>.select2-results__options{
+    max-height:300px;
+}
+
+.select2-container--default .select2-selection--multiple .select2-selection__choice__remove {
+    margin-right: 5px;
+    color: #6777ef;
+}

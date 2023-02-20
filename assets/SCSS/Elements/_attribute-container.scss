@@ -1,0 +1,10 @@
+.attribute-container{
+    .attribute{
+        margin-bottom: 0.3rem;
+        display: grid;
+        grid-template-columns: repeat(9,1fr);
+        align-items: center;
+        //justify-items: center;
+        gap: 0.3rem;
+    }
+}

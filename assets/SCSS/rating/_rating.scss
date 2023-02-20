@@ -1,0 +1,53 @@
+      /* Rating css added by gaurav */
+      .emojis {
+        display: flex;
+    }
+    .rating-title h5 {
+        font-size: 20px;
+        font-weight: 600;
+    }
+    .half-stars-example .rating-group {
+        display: inline-flex;
+    }
+    .half-stars-example .rating__icon {
+        pointer-events: none;
+    }
+    .half-stars-example .rating__input {
+        position: absolute !important;
+        left: -9999px !important;
+    }
+    .half-stars-example .rating__label {
+        /*cursor: pointer;*/
+        padding: 0 0.1em;
+        font-size: 30px !important;
+    }
+    .half-stars-example .rating__label--half {
+        padding-right: 0;
+        margin-right: -0.6em;
+        z-index: 2;
+    }
+    .half-stars-example .rating__icon--star {
+        color: orange;
+    }
+    .half-stars-example .rating__icon--none {
+        color: #eee;
+    }
+    .half-stars-example .rating__input--none:checked + .rating__label .rating__icon--none {
+        color: red;
+    }
+    .half-stars-example .rating__input:checked ~ .rating__label .rating__icon--star {
+        color: #ddd;
+    }
+    .half-stars-example .rating-group:disabled .rating__label .rating__icon--star, .half-stars-example .rating-group:disabled .rating__label--half .rating__icon--star {
+        color: orange;
+    }
+    .half-stars-example .rating__input:disabled ~ .rating__label .rating__icon--star, .half-stars-example .rating__input:disabled ~ .rating__label--half .rating__icon--star {
+        color: #ddd;
+    }
+    .half-stars-example .rating-group:disabled .rating__input--none:not(:hover) + .rating__label .rating__icon--none {
+        color: #eee;
+    }
+    .half-stars-example .rating__input--none:disabled + .rating__label .rating__icon--none {
+        color: red;
+    }
+    

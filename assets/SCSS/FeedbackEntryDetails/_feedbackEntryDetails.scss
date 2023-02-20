@@ -1,0 +1,72 @@
+.option-input {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    -ms-appearance: none;
+    -o-appearance: none;
+    appearance: none;
+    position: relative;
+    top: 6px;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    height: 18px;
+    width: 18px;
+    -webkit-transition: all 0.15s ease-out 0s;
+    -moz-transition: all 0.15s ease-out 0s;
+    transition: all 0.15s ease-out 0s;
+    background: #ffffff;
+    border: #ccc solid 1px;
+    color: #fff;
+    cursor: pointer;
+    display: inline-block;
+    margin-right: 0.2rem;
+    outline: none;
+    position: relative;
+    z-index: 1000;
+}
+
+    .option-input:hover {
+        background: #eee;
+    }
+
+    .option-input:checked {
+        background: #346cb0;
+        border-color: #346cb0;
+    }
+
+        .option-input:checked::before {
+            height: 18px;
+            width: 18px;
+            position: absolute;
+            content: '\2714';
+            display: inline-block;
+            font-weight: bold;
+            padding-right: 2px;
+            /*font-size: 20;*/
+            text-align: center;
+            line-height: 18px;
+        }
+
+        .option-input:checked::after {
+            -webkit-animation: click-wave 0.65s;
+            -moz-animation: click-wave 0.65s;
+            animation: click-wave 0.65s;
+            background: #feb018;
+            content: '';
+            display: block;
+            position: relative;
+            z-index: 100;
+        }
+
+    .option-input.radio {
+        border-radius: 50%;
+        top: 3px;
+        width: 18px;
+        height: 18px;
+        left: -1px;
+        margin-right: 0.15rem;
+    }
+
+        .option-input.radio::after {
+            border-radius: 50%;
+        }

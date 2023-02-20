@@ -1,0 +1,65 @@
+.main-content{
+    padding-top: 65px;
+    @media only screen and (min-width: 1024px) {
+    padding-left: 268px;
+    }
+    padding-right: 18px;
+}
+
+
+
+
+
+
+.form-group {
+    margin-bottom: 15px;
+}
+.main-sidebar{
+   .nav-link{
+ span{
+     font-weight: 500;
+ }
+   }
+}
+
+
+.navbar{
+    height: 60px;
+}
+
+.main-sidebar {
+    .sidebar-brand{
+        height: 60px;
+    }
+}
+
+sup {
+    top: -0.2em;
+}
+.settingSidebar {
+    .settingPanelToggle{
+    top:0 !important;
+ }
+}
+
+
+.card .card-header h4,h6 {
+    font-size: 17px;
+    line-height: 28px;
+    padding-right: 10px;
+    margin-bottom: 0;
+    color: #212529;
+}
+
+
+.form-control, .input-group-text, .custom-select, .custom-file-label{
+        border-color:darken(#e4e6fc, 5%);
+}
+
+.select2-container .select2-selection--multiple, .select2-container .select2-selection--single{
+     border-color:darken(#e4e6fc, 5%);
+}
+
+.main-sidebar .sidebar-menu li a span{
+    margin-top:0
+}

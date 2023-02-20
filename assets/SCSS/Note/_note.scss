@@ -1,0 +1,23 @@
+﻿.alert.alert-has-icon {
+    background: #fff;
+    display: flex;
+    border: 1px solid #cbd1d6;
+       padding: 0;
+           color: #2d335f;
+               border-radius: 0;
+                   font-size: 15px;
+}
+
+.alert.alert-has-icon .alert-icon {
+     margin-top: 0px; 
+     width: auto; 
+    background: #6777ef !important;
+    color: #fff;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.alert.alert-has-icon .alert-body{
+        padding: 0 7px;
+}

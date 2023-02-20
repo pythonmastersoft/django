@@ -1,0 +1,184 @@
+{% extends 'HR/base.html' %}
+
+{% load crispy_forms_tags %}
+{% block content %}
+ <div class="col-12 col-sm-10 offset-sm-1 col-md-8 offset-md-2 col-lg-8 offset-lg-2 col-xl-8 offset-xl-2">
+            <div class="card card-primary">
+              <div class="card-header">
+                <h4>Raise a Requirement </h4>
+              </div>
+              <div class="card-body">
+                <form onsubmit="message()" action=""  method="post" id="myDIV">
+                   {% csrf_token %}
+
+                  <div class="row">
+                    <div class="form-group col-6">
+                      <label style="margin-bottom: .5rem;"> Requestor Name:</label>
+                      <input type="text" class="form-control text-uppercase" id="requestor_name" placeholder="Enter Name" name="requestor_name" >
+                    </div>
+
+                    <div class="form-group col-6">
+                      <label style="margin-bottom: .5rem;">Project Name:</label>
+                      <input type="text" class="form-control text-uppercase" id="project_name" placeholder="Enter Name" name="project_name" required>
+                    </div>
+
+                    <div class="row">
+                     <div class="form-group col-6">
+                      <label class="form-label">Department:</label>
+                      <select id="department" class="form-select form-control" name="department" onchange="populatePositions()">
+                        <option value="">Select Department</option>
+                        <option value="BUSINESS_DEVELOPMENT">BUSINESS DEVELOPMENT</option>
+                        <option value="DEVELOPMENT">DEVELOPMENT</option>
+                        <option value="HR">HR</option>
+                        <option value="TESTER">TESTER</option>
+                        <option value="IMPLEMENTATION_CCMS">IMPLEMENTATION (CCMS)</option>
+                        <option value="CCMS_OTHER">CCMS (OTHER)</option>
+                        <option value="IMPLEMENTATION_RFC">IMPLEMENTATION (RFC)</option>
+                        <option value="WEB">WEB</option>
+                        <option value="DIGITAL_MARKETING">DIGITAL MARKETING</option>
+                        <option value="MARKETING">MARKETING</option>
+                        <option value="ACCOUNTS">ACCOUNTS</option>
+                        <option value="ADMIN">ADMIN</option>
+                        <option value="TECH_IT">TECH IT</option>
+                        <option value="MANAGEMENT">MANAGEMENT</option>
+                      </select>
+
+                    </div>
+
+                      <div class="form-group col-6">
+                      <label class="form-label" for="position">Position:</label>
+                        <select class="form-select form-control" id="position" name="position">
+                        <option value="">Select a department first</option>
+                        </select>
+
+                    </div>
+
+                   <div class="row">
+                    <div class="form-group col-6">
+                      <label style="margin-bottom: .5rem;"> No of Positions:</label>
+                      <input type="number" min="1" class="form-control" id="no_of_positions" name="no_of_positions" >
+                    </div>
+
+                    <div class="form-group col-6">
+                      <label for="text" class="form-label">Type of Resource:</label>
+                      <select id="type_of_resource" class="form-select form-control" name="type_of_resource" required >
+                      <option selected>Resource Type</option>
+                      <option>Payroll</option>
+                      <option>Intern</option>
+
+                      </select>
+                    </div>
+                   </div>
+
+                   <div class="row">
+                    <div class="form-group col-6">
+                      <label for="text" class="form-label">Posting Location</label>
+                      <select id="posting_location" class="form-select form-control" name="posting_location" required >
+                      <option selected>We are Here</option>
+                      <option>Nagpur</option>
+                      <option>Pune</option>
+                      <option>Mumbai</option>
+                      <option>Aurangabad</option>
+
+                      </select>
+
+                    </div>
+
+                      <div class="form-group col-6">
+                          <label style="margin-bottom: .5rem;"> Experience Required:</label>
+                          <input type="number" min="0" class="form-control " id="experience_required" name="experience_required" >
+                      </div>
+                  </div>
+
+                <div class="row">
+
+                  <div class="form-group ">
+                    <label style="margin-bottom: .5rem;">Required Technologies</label>
+                    <input type="text" class="form-control" id="technologies_required" name="technologies_required" >
+                  </div>
+
+                 <div class="form-group">
+                    <label style="margin-bottom: .5rem;"> Special Remarks:</label>
+                     <textarea class="form-control" id="special_remark" name="special_remark" rows="3"></textarea>
+                  </div>
+                </div>
+
+                  <div class=".justify-content-center text-center">
+                    <button type="submit" class="btn btn-primary btn-lg btn-block">
+                      Submit
+                    </button>
+                  </div>
+
+                  </div>
+                </form>
+                  </div>
+              </div>
+            </div>
+
+
+<!--Script for getting the postion on on selected departmewnt in raise requirement form-->
+<script>
+var positions = {
+
+    BUSINESS_DEVELOPMENT: ["BDA", "BDA International ", "BDO"],
+    DEVELOPMENT: ["MVC", "IOS Application Developer", "Asp.net","MVC Lead","Full Stack Developer","SQL Developer- Intern","Android Developer","SQL Developer","Trainee Developer","MVC Fresher",".Net Core",".NET Fresher","Data Analyst","Python Developer","Angular Developer","Power BI Intern","Power BI"],
+    HR: ["HR Operation","Recruiter","Recruiter Intern","Recruitment Lead"],
+    TESTER: ["Tester", "Test Lead"],
+    IMPLEMENTATION_CCMS: ["Project Manager","CSE","Technical Writer","CSE-Support","Business Analyst","Assistant Email","Sr.CSE","CSE Intern","Telecaller","Delivery Manager","Product Manager"],
+    CCMS_OTHER: ["Data Entry","Intern"],
+    IMPLEMENTATION_RFC: ["Business Analyst","CSE","CSE-Support","Sr.CSE","Project Manager"],
+    WEB: ["UI Developer","Web Support & Implementation","Asp.Net","UX Designer","Graphics Designer"],
+    DIGITAL_MARKETING: ["SEO Executive","Digital Marketing Executive","Video Editor","Social Media Executive","Content Head","Content Writer"],
+    MARKETING: ["Marketing Manager","Academician","Bid Manager","Academic Counselor","Intern Pre Sales","Presales Internationa","Telecaller","PreSales Executive","Corporate Communication"],
+    ACCOUNTS: ["Sr.Accountant","Telecaller","Jr.Accountant"],
+    ADMIN: ["Admin Head","Admin Executive"],
+    TECH_IT: ["Tech Support","Non Tech Admin","System Administrator","Executive Assistant"],
+    MANAGEMENT: ["Executive Assistant"]
+};
+
+function populatePositions() {
+    var department = document.getElementById("department").value;
+    var position = document.getElementById("position");
+    position.innerHTML = "";
+
+    if (department in positions) {
+        for (var i = 0; i < positions[department].length; i++) {
+            var option = document.createElement("option");
+            option.value = positions[department][i];
+            option.text = positions[department][i];
+            position.appendChild(option);
+        }
+    }
+}
+
+</script>
+
+
+<script>
+function message() {
+  alert("Requirement raise sucessfully Thank you")
+}
+</script>
+
+<!--<script>-->
+<!--  function onSubmit(event) {-->
+<!--    // prevent the form from submitting-->
+<!--    event.preventDefault();-->
+
+<!--    // get the current timestamp in milliseconds-->
+<!--    var timestamp = Date.now();-->
+
+<!--    // set the value of the timestamp input field-->
+<!--    document.getElementById('timestamp').value = timestamp;-->
+
+<!--    // submit the form-->
+<!--    event.target.submit();-->
+<!--  }-->
+
+<!--  // add an event listener to the form to listen for the submit event-->
+<!--  var form = document.querySelector('form');-->
+<!--  form.addEventListener('submit', onSubmit);-->
+<!--</script>-->
+
+{% endblock %}
+

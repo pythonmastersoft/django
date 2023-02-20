@@ -1,0 +1,17 @@
+.drag-start{
+    border:1px solid green;
+}
+
+.drag-stop{
+    border:1px solid red;
+}
+
+.drag-container-active{
+    border:1px solid orange !important;
+}
+
+.dropppable-row{
+    border: 1px dotted $border-color;
+    min-height:5rem;
+    padding: 1rem 1rem;
+}

@@ -1,0 +1,48 @@
+.hide{
+    display:none !important;
+}
+
+.cursor-move{
+    &:hover{
+        cursor:move;
+    }
+}
+
+.menu-header {
+    padding: 3px 15px;
+    color: #868e96;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1.3px;
+    font-weight: 600;
+    grid-column: span 2;
+} 
+
+.z-index-2000{
+    z-index:2000;
+}
+.z-index-100{
+    z-index:100;
+}
+.z-index-200{
+    z-index:200;
+}
+.z-index-300{
+    z-index:300;
+}
+
+.grid-span-2{
+    grid-column: span 2;
+}
+.grid-span-3{
+    grid-column: span 3;
+}
+.grid-span-4{
+    grid-column: span 4;
+}
+.grid-span-5{
+    grid-column: span 5;
+}
+.grid-span-6{
+    grid-column: span 6;
+}

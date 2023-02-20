@@ -1,0 +1,510 @@
+<!-- Home.html contains main logic for the user authhentication part -->
+
+<!DOCTYPE html>
+{% load static%}
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport">
+  <title>HR Recruitment Portal</title>
+  <!-- General CSS Files -->
+  <link rel="stylesheet" href="{% static 'assets/css/app.min.css' %}">
+  <!-- Template CSS -->
+  <link rel="stylesheet" href="{% static 'assets/css/style.css' %}">
+  <link rel="stylesheet" href="{% static 'assets/css/components.css' %}">
+  <!-- Custom style CSS -->
+  <link rel="stylesheet" href="{% static 'assets/css/custom.css' %}">
+  <link rel='shortcut icon' type='image/x-icon' href='assets/img/favicon.ico' />
+
+
+
+
+  <meta charset="UTF-8">
+  <meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport">
+  <title>HR Recruitment Portal</title>
+  <!-- General CSS Files -->
+  <link rel="stylesheet" href="{% static 'assets/css/app.min.css' %}">
+  <link rel="stylesheet" href="{% static 'assets/bundles/jquery-selectric/selectric.css' %}">
+  <!-- Template CSS -->
+  <link rel="stylesheet" href="{% static 'assets/css/style.css' %}">
+  <link rel="stylesheet" href="{% static 'assets/css/components.css' %}">
+  <!-- Custom style CSS -->
+  <link rel="stylesheet" href="{% static 'assets/css/custom.css' %}">
+  <link rel='shortcut icon' type='image/x-icon' href='assets/img/favicon.ico' />
+
+</head>
+
+
+<body>
+  <div class="loader"></div>
+  <div id="app">
+    <div class="main-wrapper main-wrapper-1">
+      <div class="navbar-bg"></div>
+      <nav class="navbar navbar-expand-lg main-navbar sticky">
+        <div class="form-inline me-auto">
+          <ul class="navbar-nav mr-3">
+            <li><a href="#" data-bs-toggle="sidebar" class="nav-link nav-link-lg
+									collapse-btn"> <i data-feather="align-justify"></i></a></li>
+            <li><a href="#" class="nav-link nav-link-lg fullscreen-btn">
+                <i data-feather="maximize"></i>
+              </a></li>
+            <li>
+
+            </li>
+          </ul>
+        </div>
+        <ul class="navbar-nav navbar-right">
+          <li class="dropdown dropdown-list-toggle"><a href="#" data-bs-toggle="dropdown"
+                                                       class="nav-link nav-link-lg message-toggle"><i data-feather="mail"></i>
+            <span class="badge headerBadge1">
+                6 </span> </a>
+            <div class="dropdown-menu dropdown-list dropdown-menu-right pullDown">
+              <div class="dropdown-header">
+                Messages
+                <div class="float-right">
+                  <a href="#">Mark All As Read</a>
+                </div>
+              </div>
+              <div class="dropdown-list-content dropdown-list-message">
+                <a href="#" class="dropdown-item"> <span class="dropdown-item-avatar
+											text-white"> <img alt="image" src="{% static 'assets/img/users/user-1.png' %}" class="rounded-circle">
+                  </span> <span class="dropdown-item-desc"> <span class="message-user">John
+                      Deo</span>
+                    <span class="time messege-text">Please check your mail !!</span>
+                    <span class="time">2 Min Ago</span>
+                  </span>
+                </a> <a href="#" class="dropdown-item"> <span class="dropdown-item-avatar text-white">
+                    <img alt="image" src="{% static 'assets/img/users/user-2.png' %}" class="rounded-circle">
+                  </span> <span class="dropdown-item-desc"> <span class="message-user">Sarah
+                      Smith</span> <span class="time messege-text">Request for leave
+                      application</span>
+                    <span class="time">5 Min Ago</span>
+                  </span>
+              </a> <a href="#" class="dropdown-item"> <span class="dropdown-item-avatar text-white">
+                    <img alt="image" src="{% static 'assets/img/users/user-5.png' %}" class="rounded-circle">
+                  </span> <span class="dropdown-item-desc"> <span class="message-user">Jacob
+                      Ryan</span> <span class="time messege-text">Your payment invoice is
+                      generated.</span> <span class="time">12 Min Ago</span>
+                  </span>
+              </a> <a href="#" class="dropdown-item"> <span class="dropdown-item-avatar text-white">
+                    <img alt="image" src="{% static 'assets/img/users/user-4.png' %}" class="rounded-circle">
+                  </span> <span class="dropdown-item-desc"> <span class="message-user">Lina
+                      Smith</span> <span class="time messege-text">hii John, I have upload
+                      doc
+                      related to task.</span> <span class="time">30
+                      Min Ago</span>
+                  </span>
+              </a> <a href="#" class="dropdown-item"> <span class="dropdown-item-avatar text-white">
+                    <img alt="image" src="{% static 'assets/img/users/user-3.png' %}" class="rounded-circle">
+                  </span> <span class="dropdown-item-desc"> <span class="message-user">Jalpa
+                      Joshi</span> <span class="time messege-text">Please do as specify.
+                      Let me
+                      know if you have any query.</span> <span class="time">1
+                      Days Ago</span>
+                  </span>
+              </a> <a href="#" class="dropdown-item"> <span class="dropdown-item-avatar text-white">
+                    <img alt="image" src="{% static 'assets/img/users/user-2.png' %}" class="rounded-circle">
+                  </span> <span class="dropdown-item-desc"> <span class="message-user">Sarah
+                      Smith</span> <span class="time messege-text">Client Requirements</span>
+                    <span class="time">2 Days Ago</span>
+                  </span>
+                </a>
+              </div>
+              <div class="dropdown-footer text-center">
+                <a href="#">View All <i class="fas fa-chevron-right"></i></a>
+              </div>
+            </div>
+          </li>
+          <li class="dropdown dropdown-list-toggle"><a href="#" data-bs-toggle="dropdown"
+              class="nav-link notification-toggle nav-link-lg"><i data-feather="bell" class="bell"></i>
+            </a>
+            <div class="dropdown-menu dropdown-list dropdown-menu-right pullDown">
+              <div class="dropdown-header">
+                Notifications
+                <div class="float-right">
+                  <a href="#">Mark All As Read</a>
+                </div>
+              </div>
+              <div class="dropdown-list-content dropdown-list-icons">
+                <a href="#" class="dropdown-item dropdown-item-unread"> <span
+                    class="dropdown-item-icon bg-primary text-white"> <i class="fas
+												fa-code"></i>
+                  </span> <span class="dropdown-item-desc"> Template update is
+                    available now! <span class="time">2 Min
+                      Ago</span>
+                  </span>
+                </a> <a href="#" class="dropdown-item"> <span class="dropdown-item-icon bg-info text-white"> <i class="far
+												fa-user"></i>
+                  </span> <span class="dropdown-item-desc"> <b>You</b> and <b>Dedik
+                      Sugiharto</b> are now friends <span class="time">10 Hours
+                      Ago</span>
+                  </span>
+                </a> <a href="#" class="dropdown-item"> <span class="dropdown-item-icon bg-success text-white"> <i
+                      class="fas
+												fa-check"></i>
+                  </span> <span class="dropdown-item-desc"> <b>Kusnaedi</b> has
+                    moved task <b>Fix bug header</b> to <b>Done</b> <span class="time">12
+                      Hours
+                      Ago</span>
+                  </span>
+                </a> <a href="#" class="dropdown-item"> <span class="dropdown-item-icon bg-danger text-white"> <i
+                      class="fas fa-exclamation-triangle"></i>
+                  </span> <span class="dropdown-item-desc"> Low disk space. Let's
+                    clean it! <span class="time">17 Hours Ago</span>
+                  </span>
+                </a> <a href="#" class="dropdown-item"> <span class="dropdown-item-icon bg-info text-white"> <i class="fas
+												fa-bell"></i>
+                  </span> <span class="dropdown-item-desc"> Welcome to Otika
+                    template! <span class="time">Yesterday</span>
+                  </span>
+                </a>
+              </div>
+              <div class="dropdown-footer text-center">
+                <a href="#">View All <i class="fas fa-chevron-right"></i></a>
+              </div>
+            </div>
+          </li>
+           <div class="buttons">
+           <a class="btn btn-icon btn-secondary" href="{% url 'logout' %}">
+            <i class="far fa-user"></i></a>
+          </div>
+        </ul>
+      </nav>
+      <div class="main-sidebar sidebar-style-2">
+        <aside id="sidebar-wrapper">
+          <div class="sidebar-brand">
+             <a href="/hr_view"> <img alt="image" src="{% static 'assets/img/company-logo 2.png' %}" class="header-logo" /> <span
+                    class="logo-name">HR Portal </span>
+            </a>
+          </div>
+          <ul class="sidebar-menu">
+            <li class="menu-header">Main</li>
+            <li class="dropdown">
+              <a href="{% url 'raise_requirement_form' %}" class="nav-link"><i data-feather="monitor"></i><span>Raise Requirement </span></a>
+              <a href="{% url 'current_requirement' %}" class="nav-link"><i data-feather="monitor"></i><span>All Requirement </span></a>
+            </li>
+
+          </ul>
+        </aside>
+      </div>
+      <!-- Main Content -->
+      <div class="main-content">
+        <section class="section">
+          <div class="section-body">
+            <div class="row">
+              <div class="col-12">
+                  <div class="col-12 col-sm-10 offset-sm-1 col-md-8 offset-md-2 col-lg-8 offset-lg-2 col-xl-8 offset-xl-2">
+            <div class="card card-primary">
+              <div class="card-header">
+                <h4>Raise a Requirement </h4>
+              </div>
+              <div class="card-body">
+                <form onsubmit="message()" action=""  method="post" id="myDIV">
+                   {% csrf_token %}
+
+                  <div class="row">
+                    <div class="form-group col-6">
+                      <label style="margin-bottom: .5rem;"> Requestor Name:</label>
+                      <input type="text" class="form-control text-uppercase" id="requestor_name" placeholder="Enter Name" name="requestor_name" >
+                    </div>
+
+                    <div class="form-group col-6">
+                      <label style="margin-bottom: .5rem;">Project Name:</label>
+                      <input type="text" class="form-control text-uppercase" id="project_name" placeholder="Enter Name" name="project_name" required>
+                    </div>
+
+                    <div class="row">
+                     <div class="form-group col-6">
+                      <label class="form-label">Department:</label>
+                      <select id="department" class="form-select form-control" name="department" onchange="populatePositions()">
+                        <option value="">Select Department</option>
+                        <option value="BUSINESS_DEVELOPMENT">BUSINESS DEVELOPMENT</option>
+                        <option value="DEVELOPMENT">DEVELOPMENT</option>
+                        <option value="HR">HR</option>
+                        <option value="TESTER">TESTER</option>
+                        <option value="IMPLEMENTATION_CCMS">IMPLEMENTATION (CCMS)</option>
+                        <option value="CCMS_OTHER">CCMS (OTHER)</option>
+                        <option value="IMPLEMENTATION_RFC">IMPLEMENTATION (RFC)</option>
+                        <option value="WEB">WEB</option>
+                        <option value="DIGITAL_MARKETING">DIGITAL MARKETING</option>
+                        <option value="MARKETING">MARKETING</option>
+                        <option value="ACCOUNTS">ACCOUNTS</option>
+                        <option value="ADMIN">ADMIN</option>
+                        <option value="TECH_IT">TECH IT</option>
+                        <option value="MANAGEMENT">MANAGEMENT</option>
+                      </select>
+
+                    </div>
+
+                      <div class="form-group col-6">
+                      <label class="form-label" for="position">Position:</label>
+                        <select class="form-select form-control" id="position" name="position">
+                        <option value="">Select a department first</option>
+                        </select>
+
+                    </div>
+
+                   <div class="row">
+                    <div class="form-group col-6">
+                      <label style="margin-bottom: .5rem;"> No of Positions:</label>
+                      <input type="number" min="1" class="form-control" id="no_of_positions" name="no_of_positions" >
+                    </div>
+
+                    <div class="form-group col-6">
+                      <label for="text" class="form-label">Type of Resource:</label>
+                      <select id="type_of_resource" class="form-select form-control" name="type_of_resource" required >
+                      <option selected>Resource Type</option>
+                      <option>Payroll</option>
+                      <option>Intern</option>
+
+                      </select>
+                    </div>
+                   </div>
+
+                   <div class="row">
+                    <div class="form-group col-6">
+                      <label for="text" class="form-label">Posting Location</label>
+                      <select id="posting_location" class="form-select form-control" name="posting_location" required >
+                      <option selected>We are Here</option>
+                      <option>Nagpur</option>
+                      <option>Pune</option>
+                      <option>Mumbai</option>
+                      <option>Aurangabad</option>
+
+                      </select>
+
+                    </div>
+
+                      <div class="form-group col-6">
+                          <label style="margin-bottom: .5rem;"> Experience Required:</label>
+                          <input type="number" min="0" class="form-control " id="experience_required" name="experience_required" >
+                      </div>
+                  </div>
+
+                <div class="row">
+
+                  <div class="form-group ">
+                    <label style="margin-bottom: .5rem;">Required Technologies</label>
+                    <input type="text" class="form-control" id="technologies_required" name="technologies_required" >
+                  </div>
+
+                 <div class="form-group">
+                    <label style="margin-bottom: .5rem;"> Special Remarks:</label>
+                     <textarea class="form-control" id="special_remark" name="special_remark" rows="3"></textarea>
+                  </div>
+                </div>
+
+                  <div class=".justify-content-center text-center">
+                    <button type="submit" class="btn btn-primary btn-lg btn-block">
+                      Submit
+                    </button>
+                  </div>
+
+                    </div>
+                  </div>
+                </form>
+                  </div>
+              </div>
+            </div>
+
+
+
+            </div>
+            </div>
+          </div>
+        </section>
+         </div>
+
+
+
+
+
+
+      <div class="settingSidebar">
+          <a href="javascript:void(0)" class="settingPanelToggle"> <i class="fa fa-spin fa-cog"></i>
+          </a>
+          <div class="settingSidebar-body ps-container ps-theme-default">
+            <div class=" fade show active">
+              <div class="setting-panel-header">Setting Panel
+              </div>
+              <div class="p-15 border-bottom">
+                <h6 class="font-medium m-b-10">Select Layout</h6>
+                <div class="selectgroup layout-color w-50">
+                  <label class="selectgroup-item">
+                    <input type="radio" name="value" value="1" class="selectgroup-input-radio select-layout" checked>
+                    <span class="selectgroup-button">Light</span>
+                  </label>
+                  <label class="selectgroup-item">
+                    <input type="radio" name="value" value="2" class="selectgroup-input-radio select-layout">
+                    <span class="selectgroup-button">Dark</span>
+                  </label>
+                </div>
+              </div>
+              <div class="p-15 border-bottom">
+                <h6 class="font-medium m-b-10">Sidebar Color</h6>
+                <div class="selectgroup selectgroup-pills sidebar-color">
+                  <label class="selectgroup-item">
+                    <input type="radio" name="icon-input" value="1" class="selectgroup-input select-sidebar">
+                    <span class="selectgroup-button selectgroup-button-icon" data-bs-toggle="tooltip"
+                      data-original-title="Light Sidebar"><i class="fas fa-sun"></i></span>
+                  </label>
+                  <label class="selectgroup-item">
+                    <input type="radio" name="icon-input" value="2" class="selectgroup-input select-sidebar" checked>
+                    <span class="selectgroup-button selectgroup-button-icon" data-bs-toggle="tooltip"
+                      data-original-title="Dark Sidebar"><i class="fas fa-moon"></i></span>
+                  </label>
+                </div>
+              </div>
+              <div class="p-15 border-bottom">
+                <h6 class="font-medium m-b-10">Color Theme</h6>
+                <div class="theme-setting-options">
+                  <ul class="choose-theme list-unstyled mb-0">
+                    <li title="white" class="active">
+                      <div class="white"></div>
+                    </li>
+                    <li title="cyan">
+                      <div class="cyan"></div>
+                    </li>
+                    <li title="black">
+                      <div class="black"></div>
+                    </li>
+                    <li title="purple">
+                      <div class="purple"></div>
+                    </li>
+                    <li title="orange">
+                      <div class="orange"></div>
+                    </li>
+                    <li title="green">
+                      <div class="green"></div>
+                    </li>
+                    <li title="red">
+                      <div class="red"></div>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="p-15 border-bottom">
+                <div class="theme-setting-options">
+                  <label class="m-b-0">
+                    <input type="checkbox" name="custom-switch-checkbox" class="custom-switch-input"
+                      id="mini_sidebar_setting">
+                    <span class="custom-switch-indicator"></span>
+                    <span class="control-label p-l-10">Mini Sidebar</span>
+                  </label>
+                </div>
+              </div>
+              <div class="p-15 border-bottom">
+                <div class="theme-setting-options">
+                  <label class="m-b-0">
+                    <input type="checkbox" name="custom-switch-checkbox" class="custom-switch-input"
+                      id="sticky_header_setting">
+                    <span class="custom-switch-indicator"></span>
+                    <span class="control-label p-l-10">Sticky Header</span>
+                  </label>
+                </div>
+              </div>
+              <div class="mt-4 mb-4 p-3 align-center rt-sidebar-last-ele">
+                <a href="#" class="btn btn-icon icon-left btn-primary btn-restore-theme">
+                  <i class="fas fa-undo"></i> Restore Default
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+
+   <script>
+    function message() {
+      alert("The form was submitted")
+    }
+   </script>
+
+
+
+
+  <!-- General JS Scripts -->
+  <script src="{% static 'assets/js/app.min.js' %}"></script>
+  <!-- JS Libraies -->
+  <!-- Page Specific JS File -->
+  <!-- Template JS File -->
+  <script src="{% static 'assets/js/scripts.js' %}"></script>
+  <!-- Custom JS File -->
+  <script src="{% static 'assets/js/custom.js' %}"></script>
+
+
+
+<!--Script for getting the postion on on selected departmewnt in raise requirement form-->
+<script>
+var positions = {
+
+    BUSINESS_DEVELOPMENT: ["BDA", "BDA International ", "BDO"],
+    DEVELOPMENT: ["MVC", "IOS Application Developer", "Asp.net","MVC Lead","Full Stack Developer","SQL Developer- Intern","Android Developer","SQL Developer","Trainee Developer","MVC Fresher",".Net Core",".NET Fresher","Data Analyst","Python Developer","Angular Developer","Power BI Intern","Power BI"],
+    HR: ["HR Operation","Recruiter","Recruiter Intern","Recruitment Lead"],
+    TESTER: ["Tester", "Test Lead"],
+    IMPLEMENTATION_CCMS: ["Project Manager","CSE","Technical Writer","CSE-Support","Business Analyst","Assistant Email","Sr.CSE","CSE Intern","Telecaller","Delivery Manager","Product Manager"],
+    CCMS_OTHER: ["Data Entry","Intern"],
+    IMPLEMENTATION_RFC: ["Business Analyst","CSE","CSE-Support","Sr.CSE","Project Manager"],
+    WEB: ["UI Developer","Web Support & Implementation","Asp.Net","UX Designer","Graphics Designer"],
+    DIGITAL_MARKETING: ["SEO Executive","Digital Marketing Executive","Video Editor","Social Media Executive","Content Head","Content Writer"],
+    MARKETING: ["Marketing Manager","Academician","Bid Manager","Academic Counselor","Intern Pre Sales","Presales Internationa","Telecaller","PreSales Executive","Corporate Communication"],
+    ACCOUNTS: ["Sr.Accountant","Telecaller","Jr.Accountant"],
+    ADMIN: ["Admin Head","Admin Executive"],
+    TECH_IT: ["Tech Support","Non Tech Admin","System Administrator","Executive Assistant"],
+    MANAGEMENT: ["Executive Assistant"]
+};
+
+function populatePositions() {
+    var department = document.getElementById("department").value;
+    var position = document.getElementById("position");
+    position.innerHTML = "";
+
+    if (department in positions) {
+        for (var i = 0; i < positions[department].length; i++) {
+            var option = document.createElement("option");
+            option.value = positions[department][i];
+            option.text = positions[department][i];
+            position.appendChild(option);
+        }
+    }
+}
+
+</script>
+
+
+<script>
+function message() {
+  alert("Requirement raise sucessfully Thank you")
+}
+</script>
+
+<!--<script>-->
+<!--  function onSubmit(event) {-->
+<!--    // prevent the form from submitting-->
+<!--    event.preventDefault();-->
+
+<!--    // get the current timestamp in milliseconds-->
+<!--    var timestamp = Date.now();-->
+
+<!--    // set the value of the timestamp input field-->
+<!--    document.getElementById('timestamp').value = timestamp;-->
+
+<!--    // submit the form-->
+<!--    event.target.submit();-->
+<!--  }-->
+
+<!--  // add an event listener to the form to listen for the submit event-->
+<!--  var form = document.querySelector('form');-->
+<!--  form.addEventListener('submit', onSubmit);-->
+<!--</script>-->
+
+
+
+
+</body>
+
+</html>
+

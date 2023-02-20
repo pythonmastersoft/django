@@ -1,0 +1,37 @@
+.material-icons-outlined{
+    position: relative;
+    top: 0.3rem;
+}
+.icon-sm{
+    font-size:16px;
+    top:0.2rem;
+}
+
+.icon-md{
+    font-size:20px;
+    top: 0px;
+}
+.deleteIcon,.deleteAllIcon,.deleteRow{
+    color:$gray;
+    &:hover{
+        color:$red;
+        cursor: pointer;
+    }
+}
+
+.addIcon,.addRow,.addMoreAttributes,.blue-icon{
+    &:hover{
+        color:$blue;
+        cursor:pointer;
+    } 
+}
+
+.top-0{
+    top:0px;
+}
+
+.menu-icon{
+    font-size: 18px !important;
+    position: relative;
+    top: 0px;
+}

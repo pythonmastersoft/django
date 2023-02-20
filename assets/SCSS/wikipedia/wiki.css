@@ -1,0 +1,127 @@
+.wiki-results {
+  height: 80vh;
+  overflow-y: auto;
+}
+
+.wiki-content {
+  height: 87vh;
+  overflow-y: auto;
+}
+
+.bg-wiki {
+  background: #f6f6f6;
+}
+
+#search {
+  width: 100%;
+  /*position: absolute;
+            top: 30%;
+            height: 55px;
+            width: 600px;
+            display: flex;
+            flex-direction: row;
+            border: 1px solid #e2e2e2;
+            border-radius: 40px;
+            overflow: hidden;*/
+}
+
+.searchScroll {
+  padding: 0 0 20px 0;
+}
+
+#search #searchText {
+  /*height: 55px;
+            width: 440px;
+            border: none;
+            outline: none;
+            background: transparent;
+            padding: 0px 25px;
+            font-size: 20px;*/
+  font-size: 14px;
+  border-radius: 0;
+  height: 42px;
+}
+
+#search button {
+  margin: 0;
+  border-radius: 0;
+}
+
+#search i {
+  font-size: 25px;
+  height: 55px;
+  width: 55px;
+  display: -ms-grid;
+  display: grid;
+  place-items: center;
+  position: absolute;
+  right: 0;
+  color: #4285f4;
+  margin: 0 10px;
+  cursor: pointer;
+}
+
+#searchResult {
+  height: auto;
+  width: 50%;
+  position: absolute;
+  top: 40%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  padding: 20px 0;
+}
+
+.resultItem {
+  margin-top: 0px;
+  width: 100%;
+}
+
+.resultItem .resultTitle {
+  font-size: 17px;
+  text-decoration: none;
+  color: #1a0dab;
+  cursor: pointer;
+  margin-bottom: 0;
+}
+
+.resultItem .link {
+  font-size: 15px;
+  color: #006621;
+  text-decoration: none;
+}
+
+.resultItem p {
+  color: #444;
+  margin: px 0;
+  font-size: 15px;
+  font-size: 14px;
+  line-height: 22px;
+  margin-bottom: 0;
+}
+
+.wikiframe {
+  height: 95vh;
+  width: 100%;
+}
+
+.resultItem .card {
+  border: 1px dotted #dee2e6;
+  padding: 10px;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+
+.resultItem .card:hover {
+  border: 1px dotted #6777ef;
+}
+/*# sourceMappingURL=wiki.css.map */

@@ -1,0 +1,32 @@
+.dropped-report{
+    background-color: #fff;
+    border-radius:0.5rem;
+    display:flex;
+    align-items: center;
+    justify-content:space-between;
+    padding:1rem 1rem;
+    h6{
+        text-transform: capitalize;
+        margin-bottom:0px;
+    }
+    .deleteIcon{
+        position:relative;
+        top:-1px;
+    }
+}
+
+
+.line-container{
+    .material-icons-outlined{
+        position: relative;
+        top:-5px;        
+        &:hover{
+            color:#6777ef;
+            cursor:pointer;
+        }
+    }
+    .line{
+        border: 2px solid orange;
+        width:100%;
+    }
+}

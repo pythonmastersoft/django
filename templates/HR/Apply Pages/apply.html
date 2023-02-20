@@ -1,0 +1,221 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+  <head>
+
+        <meta charset="UTF-8">
+        <meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport">
+
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+        <title>Apply Here</title>
+<style>
+
+    .bg-apply {
+  background-image: url('{% static '/B_img/apply_img.jpg' %}');
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+  </style>
+
+</head>
+
+<body class="bg-apply">
+
+<div class="text-center bg-dark" style="color: white; font-size: 2em; font-weight: bold; padding: 10px;">
+  Welcome to Mastersoft HR Recruitment Portal
+</div>
+<br>
+ <div class="col-12 col-sm-10 offset-sm-1 col-md-8 offset-md-2 col-lg-8 offset-lg-2 col-xl-8 offset-xl-2">
+            <div class="card card-primary">
+              <div class="card-header">
+                <h4>Apply Here</h4>
+              </div>
+              <div class="card-body">
+
+
+      <form class="row g-3" method="POST" enctype="multipart/form-data" action="" onsubmit="message()">
+        {% csrf_token %}
+        <div class="col-md-6">
+        <label class="d-block mb-4">
+          <span class="form-label d-block">Your name</span>
+          <input  type="text" class="form-control" name="your_name" placeholder="Full Name" />
+        </label>
+        </div>
+
+         <div class="col-md-6">
+        <label class="d-block mb-4">
+          <span class="form-label d-block">Email address</span>
+          <input required  type="email" class="form-control" name="email" placeholder="Yourname@example.com"/>
+        </label>
+
+        </div>
+
+        <div class="col-md-6">
+        <label class="d-block mb-4">
+          <span class="form-label d-block">Mobile Number</span>
+            <input type="text" class="form-control" id="mobile_number" name="mobile_number" placeholder="Mobile Number" oninput="this.value=this.value.replace(/[^0-9]/g,'');" required>
+
+<!--          <input type="text" class="form-control" pattern="[0-9]{10}" maxlength="10" name="mobile_number" placeholder="Enter Mobile Number" required>-->
+        </label>
+        </div>
+
+        <div class="col-md-6">
+        <label class="d-block mb-4">
+          <span class="form-label d-block">Years of experience</span>
+          <select required name="years_of_experience" class="form-select">
+            <option>Fresher</option>
+            <option>Less than a year</option>
+            <option>1 - 2 years</option>
+            <option>2 - 4 years</option>
+            <option>4 - 7 years</option>
+            <option>7 - 10 years</option>
+            <option>10+ years</option>
+          </select>
+        </label>
+          </div>
+
+          <div class="col-md-6">
+          <label class="d-block mb-4">
+          <span class="form-label d-block">Years of  Relevant experience</span>
+          <select name="years_of_relevant_experience" id="years_of_relevant_experience" class="form-select" required>
+            <option>Fresher</option>
+            <option>Less than a year</option>
+            <option>1 - 2 years</option>
+            <option>2 - 4 years</option>
+            <option>4 - 7 years</option>
+            <option>7 - 10 years</option>
+            <option>10+ years</option>
+          </select>
+        </label>
+          </div>
+
+        <div class="col-md-6">
+         <label class="d-block mb-4">
+          <span class="form-label d-block">Current CTC</span>
+          <input class="form-control" id="current_ctc" type="text" name="current_ctc" placeholder="0.0 LPA" required/>
+        </label>
+        </div>
+
+        <div class="col-md-6">
+        <label class="d-block mb-4">
+          <span class="form-label d-block">Expected CTC</span>
+          <input class="form-control" type="text" id="expected_ctc" name="expected_ctc" placeholder="0.0 LPA" required/>
+        </label>
+           </div>
+
+
+        <div class="col-md-6">
+        <label class="d-block mb-4">
+           <label class="form-label">Department:</label>
+                      <select id="department" class="form-select form-control" name="department" onchange="populatePositions()">
+                        <option value="">Select Department</option>
+                        <option value="BUSINESS_DEVELOPMENT">BUSINESS DEVELOPMENT</option>
+                        <option value="DEVELOPMENT">DEVELOPMENT</option>
+                        <option value="HR">HR</option>
+                        <option value="TESTER">TESTER</option>
+                        <option value="IMPLEMENTATION_CCMS">IMPLEMENTATION (CCMS)</option>
+                        <option value="CCMS_OTHER">CCMS (OTHER)</option>
+                        <option value="IMPLEMENTATION_RFC">IMPLEMENTATION (RFC)</option>
+                        <option value="WEB">WEB</option>
+                        <option value="DIGITAL_MARKETING">DIGITAL MARKETING</option>
+                        <option value="MARKETING">MARKETING</option>
+                        <option value="ACCOUNTS">ACCOUNTS</option>
+                        <option value="ADMIN">ADMIN</option>
+                        <option value="TECH_IT">TECH IT</option>
+                        <option value="MANAGEMENT">MANAGEMENT</option>
+                      </select>
+        </label>
+         </div>
+
+           <div class="col-md-6">
+        <label class="form-label" for="position">Position:</label>
+                        <select class="form-select form-control" id="position" name="position">
+                        <option value="">Select a department first</option>
+                        </select>
+           </div>
+
+           <div class="col-md-6">
+            <label class="d-block mb-4">
+             <span class="form-label d-block">Your CV</span>
+            <input class="form-control" id="resume" type="file" name="resume" required/>
+            </label>
+           </div>
+
+         <div class="col-md-6">
+          <label class="form-label" for="ready_to_relocate">Ready to Relocate</label>
+             <select class="form-select form-control" id="ready_to_relocate" name="ready_to_relocate" required>
+                 <option value="">Select Option</option>
+                 <option value="YES">YES</option>
+                 <option value="NO">NO</option>
+             </select>
+           </div>
+
+        <div class="text-center">
+            <button type="submit" class="btn btn-primary">Apply</button>
+        </div>
+      </form>
+      </div>
+     </div>
+
+ </div>
+
+
+
+<script>
+function message() {
+  alert("Applied sucessfuly Thank You")
+}
+</script>
+
+
+<!-- Script for position dropdown department wise-->
+<script>
+var positions = {
+
+    BUSINESS_DEVELOPMENT: ["BDA", "BDA International ", "BDO"],
+    DEVELOPMENT: ["MVC", "IOS Application Developer", "Asp.net","MVC Lead","Full Stack Developer","SQL Developer- Intern","Android Developer","SQL Developer","Trainee Developer","MVC Fresher",".Net Core",".NET Fresher","Data Analyst","Python Developer","Angular Developer","Power BI Intern","Power BI"],
+    HR: ["HR Operation","Recruiter","Recruiter Intern","Recruitment Lead"],
+    TESTER: ["Tester", "Test Lead"],
+    IMPLEMENTATION_CCMS: ["Project Manager","CSE","Technical Writer","CSE-Support","Business Analyst","Assistant Email","Sr.CSE","CSE Intern","Telecaller","Delivery Manager","Product Manager"],
+    CCMS_OTHER: ["Data Entry","Intern"],
+    IMPLEMENTATION_RFC: ["Business Analyst","CSE","CSE-Support","Sr.CSE","Project Manager"],
+    WEB: ["UI Developer","Web Support & Implementation","Asp.Net","UX Designer","Graphics Designer"],
+    DIGITAL_MARKETING: ["SEO Executive","Digital Marketing Executive","Video Editor","Social Media Executive","Content Head","Content Writer"],
+    MARKETING: ["Marketing Manager","Academician","Bid Manager","Academic Counselor","Intern Pre Sales","Presales Internationa","Telecaller","PreSales Executive","Corporate Communication"],
+    ACCOUNTS: ["Sr.Accountant","Telecaller","Jr.Accountant"],
+    ADMIN: ["Admin Head","Admin Executive"],
+    TECH_IT: ["Tech Support","Non Tech Admin","System Administrator","Executive Assistant"],
+    MANAGEMENT: ["Executive Assistant"]
+};
+
+function populatePositions() {
+    var department = document.getElementById("department").value;
+    var position = document.getElementById("position");
+    position.innerHTML = "";
+
+    if (department in positions) {
+        for (var i = 0; i < positions[department].length; i++) {
+            var option = document.createElement("option");
+            option.value = positions[department][i];
+            option.text = positions[department][i];
+            position.appendChild(option);
+        }
+    }
+}
+
+</script>
+
+<script>
+  document.getElementById("mobile_number").addEventListener("input", function () {
+    this.value = this.value.slice(0, 10);
+  });
+</script>
+
+
+
+
+</body>
+</html>
+
+

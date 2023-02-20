@@ -1,0 +1,78 @@
+{% extends 'HR/base.html' %}
+{% load static%}
+
+{% block content %}
+
+ <div class="col-12 col-sm-10 offset-sm-1 col-md-8 offset-md-2 col-lg-8 offset-lg-2 col-xl-8 offset-xl-2">
+       <div class="card card-primary">
+           <div class="card-header">
+               <h4>Generate Offer Letter</h4>
+           </div>
+           <div class="card-body">
+        <form method="POST" action="" enctype="multipart/form-data" onsubmit="f1()">
+             {% csrf_token %}
+
+            {% for obj in data %}
+
+              <div class="form-group mt-3">
+                <label for="name">Name</label>
+                <input type="text" class="form-control" id="name" placeholder="Enter your name" value="{{obj.name}}" name="name" required>
+              </div>
+
+              <div class="form-group mt-3">
+                <input type="hidden" class="form-control" id="email" placeholder="Enter your email" value="{{obj.email}}" name="email" required>
+              </div>
+
+              <div class="form-group mt-3 ">
+                <label for="department">Department</label>
+                <input type="text" class="form-control" id="department" placeholder="Enter your contact number" value="{{obj.department}}" name="department" required>
+              </div>
+
+              <div class="form-group mt-3 ">
+                <label for="position">Position</label>
+                <input type="text" class="form-control" id="position" placeholder="Enter your contact number" value="{{obj.position}}" name="position" required>
+              </div>
+
+              <div class="form-group mt-3 ">
+                <label for="package">Package</label>
+                <input type="number" class="form-control" id="package" placeholder="Enter Package" name="package" required>
+              </div>
+
+             <div class="form-group mt-3 ">
+                <label for="in_words">Package in Words</label>
+                <input type="text" class="form-control" id="in_words" placeholder="Enter Package" name="in_words" required>
+              </div>
+
+
+              <div class="form-group mt-3 ">
+                <label >Selected for Location</label>
+                <select id="location" name="location" class="form-control" required>
+                <option value="" disabled selected>Selected For Location</option>
+                <option>Nagpur</option>
+                <option>Pune</option>
+                <option>Mumbai</option>
+                <option>Aurangabad</option>
+                </select>
+            </div>
+
+            <div class="form-group mt-3">
+                <label for="date">Joining Date</label>
+                <input type="date" class="form-control" id="date" name="date" required>
+            </div>
+
+            <a href="/hr_view/generate_offer_letter/{{obj.id}}"><button type="submit" name="send" id="sendBtn" class="btn btn-primary mt-3 mx-auto d-block">Generate Offer Letter Mail</button></a>
+            {% endfor %}
+        </form>
+
+
+<script>
+    function f1(){
+    alert('Offer letter generated and  Mail send successfully')
+    }
+</script>
+           </div>
+       </div>
+ </div>
+
+    {% endblock %}
+

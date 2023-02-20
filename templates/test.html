@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+</body>
+
+<form method="post">
+      {% csrf_token %}
+    <label for="department">Department:</label>
+    <select id="department" name="department" onchange="populatePositions()">
+        <option value="">Select a department</option>
+        <option value="IT">IT</option>
+        <option value="HR">HR</option>
+        <option value="Marketing">Marketing</option>
+    </select>
+
+    <label for="position">Position:</label>
+    <select id="position" name="position">
+        <option value="">Select a department first</option>
+    </select>
+    <button type="submit">submit</button>
+</form>
+
+
+
+<script>
+
+
+var positions = {
+    IT: ["Developer", "System Administrator", "Project Manager"],
+    HR: ["Recruiter", "Benefits Coordinator", "HR Generalist"],
+    Marketing: ["Graphic Designer", "Content Creator", "Product Manager"]
+};
+
+function populatePositions() {
+    var department = document.getElementById("department").value;
+    var position = document.getElementById("position");
+    position.innerHTML = "";
+
+    if (department in positions) {
+        for (var i = 0; i < positions[department].length; i++) {
+            var option = document.createElement("option");
+            option.value = positions[department][i];
+            option.text = positions[department][i];
+            position.appendChild(option);
+        }
+    }
+}
+
+
+</script>
+</html>

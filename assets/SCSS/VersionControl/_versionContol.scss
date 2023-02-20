@@ -1,0 +1,56 @@
+﻿.strip-card {
+    background: #f2f5f7;
+    border-left: 3px solid #6777ef;
+    padding: 1.666em;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.icon-dot {
+    font-size: 2.1rem;
+}
+
+.version-C .input-group-text {
+    padding: 10px 10px;
+}
+
+.view-version-details {
+    font-size: 16px;
+    padding: 10px;
+    margin: 10px 0;
+    background-color: rgba(0,0,0,.02);
+    border-left: 2px solid #6777ef;
+    box-shadow: 0 2px 6px #acb5f66e;
+    border-radius: 6px 0 0 6px;
+}
+
+.releases-notes {
+    border: 1px solid #6777ef;
+    border-radius: 5px;
+
+    .release-heading {
+        font-size: 16px;
+        background: #F0F3FF;
+        padding: 10px;
+        color: #6777ef;
+        border-radius: 5px 5px 0 0;
+    }
+
+    .release-content {
+        padding: 10px;
+
+        .release-details {
+            ul {
+                list-style-type: square;
+                margin-bottom:0;
+                li {
+                    color: #212529;
+                    font-size: 14px;
+                    font-weight: 600;
+                }
+            }
+        }
+    }
+}

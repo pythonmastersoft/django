@@ -1,0 +1,53 @@
+$calendar-purple:#a389d4;
+$calendar-gray:#7e869d;
+
+.fc-time{
+    text-transform: uppercase; 
+}
+
+.fc-title{
+    text-transform: capitalize;
+}
+
+.fc-datePicker-button{
+    transition:all 0.1s ease-in;
+    &:hover,&:focus,&:active{
+        color:#fff;
+        background-color:$calendar-purple !important
+    }
+}
+
+.fc-state-disabled{
+    border: 1px solid #eee !important;
+    color: $calendar-gray !important;
+}
+.fc-today-button{
+    border:1px solid $calendar-purple ;
+    color: $calendar-purple ;
+    transition:all 0.1s ease-in;
+    &:hover:enabled{
+        color:#fff;
+        background-color:$calendar-purple !important
+    }
+}
+
+.fc-time-grid-event{
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+
+        .fc-title{
+       font-size:16px;
+       text-align:center
+    }
+}
+
+.fc-list-item{
+  .fc-list-item-time{
+        text-align: left;
+    }
+   .fc-list-item-title{
+        text-align: left;
+    }
+}

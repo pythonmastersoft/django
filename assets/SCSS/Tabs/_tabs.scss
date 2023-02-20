@@ -1,0 +1,48 @@
+﻿.nav {
+    &.nav-tabs {
+        border: 0;
+        margin-bottom: 10px;
+
+        .nav-item {
+            border-radius: 0;
+
+            &:first-child .nav-link {
+                border-top-left-radius: 6px;
+                border-bottom-left-radius: 6px;
+            }
+
+            &:last-child .nav-link {
+                border-top-right-radius: 6px;
+                border-bottom-right-radius: 6px;
+            }
+
+            .nav-link {
+                border: 1px solid rgb(229, 232, 236);
+                width: 100%;
+                text-transform: none;
+                color: rgb(135, 150, 165);
+                display: inline-flex;
+                -webkit-box-align: center;
+                align-items: center;
+                -webkit-box-pack: center;
+                justify-content: center;
+                position: relative;
+                border-radius: 0;
+
+                &:hover {
+                    background-color: rgba(0, 0, 0, 0.04);
+                }
+
+                &.active {
+                    color: #6777ef;
+                    background-color: #f0f3ff;
+                    border-color: #6777ef !important;
+
+                    &:hover {
+                        background-color: #e0e5f7;
+                    }
+                }
+            }
+        }
+    }
+}

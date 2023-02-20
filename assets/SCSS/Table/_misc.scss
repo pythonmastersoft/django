@@ -1,0 +1,10 @@
+tfoot.custom-footer{        
+    tr{        
+        td{            
+            border-top:1px dotted $card-border-color ;
+            font-weight:600;
+            padding-top:1rem !important;
+            margin-top:0.5rem;
+        }
+    }
+}

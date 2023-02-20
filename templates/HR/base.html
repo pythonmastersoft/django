@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+{% load static%}
+
+
+<html lang="en">
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jquery-datetimepicker@2.5.20/jquery.datetimepicker.css">
+  <link rel="stylesheet" href="{% static 'css/custom-style.css' %}">
+
+  <meta charset="UTF-8">
+  <meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport">
+  <title>Recruitment Portal - HR View</title>
+  <!-- General CSS Files -->
+  <link rel="stylesheet" href="{% static 'assets/css/app.min.css' %}">
+  <!-- Template CSS -->
+  <link rel="stylesheet" href="{% static 'assets/css/style.css' %}">
+  <link rel="stylesheet" href="{% static 'assets/css/components.css' %}">
+  <!-- Custom style CSS -->
+  <link rel="stylesheet" href="{% static 'assets/css/custom.css' %}">
+  <link rel='shortcut icon' type='image/x-icon' href='assets/img/favicon.ico' />
+
+
+  <meta charset="UTF-8">
+  <meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport">
+  <title>HR view-Recruitment Portal</title>
+  <!-- General CSS Files -->
+  <link rel="stylesheet" href="{% static 'assets/css/app.min.css' %}">
+  <link rel="stylesheet" href="{% static 'assets/bundles/jquery-selectric/selectric.css' %}">
+  <!-- Template CSS -->
+  <link rel="stylesheet" href="{% static 'assets/css/style.css' %}">
+  <link rel="stylesheet" href="{% static 'assets/css/components.css' %}">
+  <!-- Custom style CSS -->
+  <link rel="stylesheet" href="{% static 'assets/css/custom.css' %}">
+  <link rel='shortcut icon' type='image/x-icon' href='assets/img/favicon.ico' />
+
+
+
+<!--  <meta charset="UTF-8">-->
+<!--    <meta name="viewport"-->
+<!--          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">-->
+<!--    <meta http-equiv="X-UA-Compatible" content="ie=edge">-->
+<!--       <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300&display=swap" rel="stylesheet">-->
+<!--    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jquery-datetimepicker@2.5.20/jquery.datetimepicker.css">-->
+<!--    <link rel="stylesheet" href="{% static 'css/custom-style.css' %}">-->
+
+
+<!--  <style type="text/css">-->
+<!--		body-->
+<!--		{-->
+<!--		    counter-reset: Serial;-->
+<!--		}-->
+
+<!--		table-->
+<!--		{-->
+<!--		    border-collapse: separate;-->
+<!--		}-->
+
+<!--		tr td:first-child:before-->
+<!--		{-->
+<!--		  counter-increment: Serial;-->
+<!--		  content: counter(Serial);-->
+<!--		}-->
+<!--	</style>-->
+
+<!--  -->
+<!--  -->
+
+<!--  This  style is added to get the serial number counter -->
+<style type="text/css">
+
+    body {
+        counter-reset: first-table-counter ;
+        counter-reset: second-table-counter;
+    }
+
+    table {
+        border-collapse: separate;
+    }
+
+    #first-table tr td:first-child:before {
+        counter-increment: first-table-counter;
+        content: counter(first-table-counter);
+    }
+
+    #second-table tr td:first-child:before {
+        counter-increment: second-table-counter;
+        content: counter(second-table-counter);
+    }
+
+
+</style>
+</head>
+
+<body>
+
+  <div class="loader"></div>
+  <div id="app">
+    <div class="main-wrapper main-wrapper-1">
+      <div class="navbar-bg"></div>
+      <nav class="navbar navbar-expand-lg main-navbar sticky">
+        <div class="form-inline me-auto">
+          <ul class="navbar-nav mr-3">
+            <li><a href="#" data-bs-toggle="sidebar" class="nav-link nav-link-lg
+									collapse-btn"> <i data-feather="align-justify"></i></a></li>
+            <li><a href="#" class="nav-link nav-link-lg fullscreen-btn">
+                <i data-feather="maximize"></i>
+              </a></li>
+            <li>
+            </li>
+          </ul>
+        </div>
+        <ul class="navbar-nav navbar-right">
+
+            <div class="dropdown-menu dropdown-list dropdown-menu-right pullDown">
+              <div class="dropdown-header">
+                Messages
+                <div class="float-right">
+                  <a href="#">Mark All As Read</a>
+                </div>
+              </div>
+              <div class="dropdown-list-content dropdown-list-message">
+                <a href="#" class="dropdown-item"> <span class="dropdown-item-avatar
+											text-white"> <img alt="image" src="{% static 'assets/img/users/user-1.png' %}" class="rounded-circle">
+                  </span> <span class="dropdown-item-desc"> <span class="message-user">John
+                      Deo</span>
+                    <span class="time messege-text">Please check your mail !!</span>
+                    <span class="time">2 Min Ago</span>
+                  </span>
+                </a> <a href="#" class="dropdown-item"> <span class="dropdown-item-avatar text-white">
+                    <img alt="image" src="{% static 'assets/img/users/user-2.png' %}" class="rounded-circle">
+                  </span> <span class="dropdown-item-desc"> <span class="message-user">Sarah
+                      Smith</span> <span class="time messege-text">Request for leave
+                      application</span>
+                    <span class="time">5 Min Ago</span>
+                  </span>
+              </a> <a href="#" class="dropdown-item"> <span class="dropdown-item-avatar text-white">
+                    <img alt="image" src="{% static 'assets/img/users/user-5.png' %}" class="rounded-circle">
+                  </span> <span class="dropdown-item-desc"> <span class="message-user">Jacob
+                      Ryan</span> <span class="time messege-text">Your payment invoice is
+                      generated.</span> <span class="time">12 Min Ago</span>
+                  </span>
+              </a> <a href="#" class="dropdown-item"> <span class="dropdown-item-avatar text-white">
+                    <img alt="image" src="{% static 'assets/img/users/user-4.png' %}" class="rounded-circle">
+                  </span> <span class="dropdown-item-desc"> <span class="message-user">Lina
+                      Smith</span> <span class="time messege-text">hii John, I have upload
+                      doc
+                      related to task.</span> <span class="time">30
+                      Min Ago</span>
+                  </span>
+              </a> <a href="#" class="dropdown-item"> <span class="dropdown-item-avatar text-white">
+                    <img alt="image" src="{% static 'assets/img/users/user-3.png' %}" class="rounded-circle">
+                  </span> <span class="dropdown-item-desc"> <span class="message-user">Jalpa
+                      Joshi</span> <span class="time messege-text">Please do as specify.
+                      Let me
+                      know if you have any query.</span> <span class="time">1
+                      Days Ago</span>
+                  </span>
+              </a> <a href="#" class="dropdown-item"> <span class="dropdown-item-avatar text-white">
+                    <img alt="image" src="{% static 'assets/img/users/user-2.png' %}" class="rounded-circle">
+                  </span> <span class="dropdown-item-desc"> <span class="message-user">Sarah
+                      Smith</span> <span class="time messege-text">Client Requirements</span>
+                    <span class="time">2 Days Ago</span>
+                  </span>
+                </a>
+              </div>
+              <div class="dropdown-footer text-center">
+                <a href="#">View All <i class="fas fa-chevron-right"></i></a>
+              </div>
+            </div>
+          </li>
+          <li class="dropdown dropdown-list-toggle"><a href="#" data-bs-toggle="dropdown"
+              class="nav-link notification-toggle nav-link-lg"><i data-feather="bell" class="bell"></i>
+            </a>
+            <div class="dropdown-menu dropdown-list dropdown-menu-right pullDown">
+              <div class="dropdown-header">
+                Notifications
+                <div class="float-right">
+                  <a href="#">Mark All As Read</a>
+                </div>
+              </div>
+              <div class="dropdown-list-content dropdown-list-icons">
+                <a href="#" class="dropdown-item dropdown-item-unread"> <span
+                    class="dropdown-item-icon bg-primary text-white"> <i class="fas
+												fa-code"></i>
+                  </span> <span class="dropdown-item-desc"> Template update is
+                    available now! <span class="time">2 Min
+                      Ago</span>
+                  </span>
+                </a> <a href="#" class="dropdown-item"> <span class="dropdown-item-icon bg-info text-white"> <i class="far
+												fa-user"></i>
+                  </span> <span class="dropdown-item-desc"> <b>You</b> and <b>Dedik
+                      Sugiharto</b> are now friends <span class="time">10 Hours
+                      Ago</span>
+                  </span>
+                </a> <a href="#" class="dropdown-item"> <span class="dropdown-item-icon bg-success text-white"> <i
+                      class="fas
+												fa-check"></i>
+                  </span> <span class="dropdown-item-desc"> <b>Kusnaedi</b> has
+                    moved task <b>Fix bug header</b> to <b>Done</b> <span class="time">12
+                      Hours
+                      Ago</span>
+                  </span>
+                </a> <a href="#" class="dropdown-item"> <span class="dropdown-item-icon bg-danger text-white"> <i
+                      class="fas fa-exclamation-triangle"></i>
+                  </span> <span class="dropdown-item-desc"> Low disk space. Let's
+                    clean it! <span class="time">17 Hours Ago</span>
+                  </span>
+                </a> <a href="#" class="dropdown-item"> <span class="dropdown-item-icon bg-info text-white"> <i class="fas
+												fa-bell"></i>
+                  </span> <span class="dropdown-item-desc"> Welcome to Otika
+                    template! <span class="time">Yesterday</span>
+                  </span>
+                </a>
+              </div>
+              <div class="dropdown-footer text-center">
+                <a href="#">View All <i class="fas fa-chevron-right"></i></a>
+              </div>
+            </div>
+          </li>
+          <div class="buttons">
+           <a class="btn btn-icon btn-secondary" href="{% url 'logout' %}">
+            <i class="far fa-user"></i></a>
+          </div>
+        </ul>
+      </nav>
+      <div class="main-sidebar sidebar-style-2">
+        <aside id="sidebar-wrapper">
+          <div class="sidebar-brand">
+            <a href="/hr_view"> <img alt="image" src="{% static 'assets/img/company-logo 2.png' %}" class="header-logo" /> <span
+                    class="logo-name">HR Portal </span>
+            </a>
+          </div>
+          <ul class="sidebar-menu">
+            <!--
+            <li class="menu-header">Main</li>
+            <li class="dropdown">
+              <a href="/hr_view/register/" class="nav-link"><i data-feather="monitor"></i><span>Create User</span></a>
+            </li>
+
+            <li class="dropdown">
+              <a href="/hr_view" class="nav-link"><i data-feather="monitor"></i><span> raise requirement</span></a>
+            </li>
+
+
+            <li class="dropdown">
+              <a href="" class="nav-link"><i data-feather="monitor"></i><span>test 3 </span></a>
+            </li>
+
+
+            <li class="dropdown">
+              <a href="#" class="menu-toggle nav-link has-dropdown"><i
+                  data-feather="briefcase"></i><span>Main</span></a>
+              <ul class="dropdown-menu">
+                <li><a class="nav-link" href="/hr_view">Raise Requirement</a></li>
+                <li><a class="nav-link" href="/hr_view/register/">Register User</a></li>
+              </ul>
+            </li>-->
+            <li class="dropdown">
+              <a href="/hr_view" class="menu-toggle nav-link has-dropdown"><i data-feather="command"></i><span>Main</span></a>
+              <ul class="dropdown-menu">
+                <li><a class="nav-link" href="/hr_view">All Requirement</a></li>
+                <li><a class="nav-link" href="/hr_view/raise_requirement/">Raise Requirement</a></li>
+<!--                <li><a class="nav-link" href="/hr_view/register/">Create User</a></li>-->
+<!--                <li><a class="nav-link" href="/google">Create Calenadar Event</a></li>-->
+
+              </ul>
+            </li>
+
+            <li class="dropdown">
+              <a href="#" class="menu-toggle nav-link has-dropdown"><i data-feather="command"></i><span>Applicants</span></a>
+              <ul class="dropdown-menu">
+                <li><a class="nav-link" href="/hr_view/showapplicants/">Applied Candidate</a></li>
+                <li><a class="nav-link" href="/hr_view/selected_applicants/">Selected Candidate </a></li>
+                <li><a class="nav-link" href="/hr_view/scheduled_interview/">Scheduled Interviews</a></li>
+              </ul>
+            </li>
+
+              <li class="dropdown">
+              <a href="#" class="menu-toggle nav-link has-dropdown"><i data-feather="command"></i><span>Master</span></a>
+              <ul class="dropdown-menu">
+                <li><a class="nav-link" href="/admin">User Database</a></li>
+                <li><a class="nav-link" href="/hr_view/register/">Add User </a></li>
+                <li><a class="nav-link" href="/admin/auth/user/">Edit User</a></li>
+                <li><a class="nav-link" href="/hr_view/candidate_master/">Candidate Master</a></li>
+                <li><a class="nav-link" href="/hr_view/requirement_master/">Recruitment Master</a></li>
+              </ul>
+
+            </li>
+          </ul>
+        </aside>
+      </div>
+
+      <!-- Main Content -->
+      <div class="main-content">
+        <section class="section">
+          <div class="section-body">
+            <div class="row">
+              <div class="col-12">
+               {% block content %}
+
+
+               {% endblock %}
+            </div>
+            </div>
+          </div>
+        </section>
+         </div>
+
+        <div class="settingSidebar">
+          <a href="javascript:void(0)" class="settingPanelToggle"> <i class="fa fa-spin fa-cog"></i>
+          </a>
+          <div class="settingSidebar-body ps-container ps-theme-default">
+            <div class=" fade show active">
+              <div class="setting-panel-header">Setting Panel
+              </div>
+              <div class="p-15 border-bottom">
+                <h6 class="font-medium m-b-10">Select Layout</h6>
+                <div class="selectgroup layout-color w-50">
+                  <label class="selectgroup-item">
+                    <input type="radio" name="value" value="1" class="selectgroup-input-radio select-layout" checked>
+                    <span class="selectgroup-button">Light</span>
+                  </label>
+                  <label class="selectgroup-item">
+                    <input type="radio" name="value" value="2" class="selectgroup-input-radio select-layout">
+                    <span class="selectgroup-button">Dark</span>
+                  </label>
+                </div>
+              </div>
+              <div class="p-15 border-bottom">
+                <h6 class="font-medium m-b-10">Sidebar Color</h6>
+                <div class="selectgroup selectgroup-pills sidebar-color">
+                  <label class="selectgroup-item">
+                    <input type="radio" name="icon-input" value="1" class="selectgroup-input select-sidebar">
+                    <span class="selectgroup-button selectgroup-button-icon" data-bs-toggle="tooltip"
+                      data-original-title="Light Sidebar"><i class="fas fa-sun"></i></span>
+                  </label>
+                  <label class="selectgroup-item">
+                    <input type="radio" name="icon-input" value="2" class="selectgroup-input select-sidebar" checked>
+                    <span class="selectgroup-button selectgroup-button-icon" data-bs-toggle="tooltip"
+                      data-original-title="Dark Sidebar"><i class="fas fa-moon"></i></span>
+                  </label>
+                </div>
+              </div>
+              <div class="p-15 border-bottom">
+                <h6 class="font-medium m-b-10">Color Theme</h6>
+                <div class="theme-setting-options">
+                  <ul class="choose-theme list-unstyled mb-0">
+                    <li title="white" class="active">
+                      <div class="white"></div>
+                    </li>
+                    <li title="cyan">
+                      <div class="cyan"></div>
+                    </li>
+                    <li title="black">
+                      <div class="black"></div>
+                    </li>
+                    <li title="purple">
+                      <div class="purple"></div>
+                    </li>
+                    <li title="orange">
+                      <div class="orange"></div>
+                    </li>
+                    <li title="green">
+                      <div class="green"></div>
+                    </li>
+                    <li title="red">
+                      <div class="red"></div>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="p-15 border-bottom">
+                <div class="theme-setting-options">
+                  <label class="m-b-0">
+                    <input type="checkbox" name="custom-switch-checkbox" class="custom-switch-input"
+                      id="mini_sidebar_setting">
+                    <span class="custom-switch-indicator"></span>
+                    <span class="control-label p-l-10">Mini Sidebar</span>
+                  </label>
+                </div>
+              </div>
+              <div class="p-15 border-bottom">
+                <div class="theme-setting-options">
+                  <label class="m-b-0">
+                    <input type="checkbox" name="custom-switch-checkbox" class="custom-switch-input"
+                      id="sticky_header_setting">
+                    <span class="custom-switch-indicator"></span>
+                    <span class="control-label p-l-10">Sticky Header</span>
+                  </label>
+                </div>
+              </div>
+              <div class="mt-4 mb-4 p-3 align-center rt-sidebar-last-ele">
+                <a href="#" class="btn btn-icon icon-left btn-primary btn-restore-theme">
+                  <i class="fas fa-undo"></i> Restore Default
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <footer class="main-footer">
+        <div class="footer-left">
+          Copyright &copy; 2019 <div class="bullet"></div> Design By <a href="#">Redstar</a>
+        </div>
+        <div class="footer-right">
+        </div>
+      </footer>
+    </div>
+
+
+
+
+
+
+   <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+   <script src="https://cdn.jsdelivr.net/npm/jquery-datetimepicker@2.5.20/build/jquery.datetimepicker.full.min.js"></script>
+
+    <script>
+
+      $( function() {
+        $( "#id_startDateTime" ).datetimepicker({});
+        $( "#id_endDateTime" ).datetimepicker({});
+      } );
+    </script>
+
+<script>
+function myFunction() {
+  var x = document.getElementById("myDIV");
+  if (x.style.display === "none") {
+    x.style.display = "block";
+  } else {
+    x.style.display = "none";
+  }
+}
+</script>
+
+
+
+<script>
+$("#button1").click(function() {
+  $("#box form").toggle("slow");
+  return false;
+});
+</script>
+
+
+
+  <!-- General JS Scripts -->
+  <script src="{% static 'assets/js/app.min.js' %}"></script>
+  <!-- JS Libraies -->
+  <!-- Page Specific JS File -->
+  <!-- Template JS File -->
+  <script src="{% static 'assets/js/scripts.js' %}"></script>
+  <!-- Custom JS File -->
+  <script src="{% static 'assets/js/custom.js' %}"></script>
+
+
+
+<!--script for applied data.html on select button-->
+<!--<script>-->
+<!--&lt;!&ndash;j query code&ndash;&gt;-->
+
+<!--$(".use-address").click(function() {-->
+<!--    var $row = $(this).closest("tr");    // Find the row-->
+<!--    var $text = $row.find(".nr").text(); // Find the text-->
+
+<!--    // Let's test it out-->
+<!--    var text = $text;-->
+<!--    //$("#demo").append(text)-->
+<!--    $.post('/hr_view/showapplicants/', {text: text});-->
+
+<!--    //$.post('/hr_view/selected_applicants/', {text: text});-->
+<!--});-->
+<!--</script>-->
+
+   <script>
+
+           $('#datetime').datetimepicker({
+             format: 'hh:mm a'
+                });
+              </script>
+
+
+
+
+
+
+
+</body>
+
+</html>
