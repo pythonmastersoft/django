@@ -16,7 +16,6 @@ import os
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
@@ -27,7 +26,6 @@ SECRET_KEY = 'django-insecure-m8-f0*&ull%z!6a&0#wt=7ls6os!g&j&@tczai(y$h)so*03ae
 DEBUG = True
 
 ALLOWED_HOSTS = []
-
 
 # Application definition
 
@@ -44,7 +42,6 @@ INSTALLED_APPS = [
     'widget_tweaks',
 ]
 
-
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -60,7 +57,7 @@ ROOT_URLCONF = 'hr_recruitment.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [BASE_DIR / "templates"], # Set the dierectory so that django can understand where to look for.
+        'DIRS': [BASE_DIR / "templates"],  # Set the dierectory so that django can understand where to look for.
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -74,7 +71,6 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'hr_recruitment.wsgi.application'
-
 
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
@@ -97,21 +93,19 @@ WSGI_APPLICATION = 'hr_recruitment.wsgi.application'
 
 
 DATABASES = {
-     "default": {
-         'ENGINE': 'sql_server.pyodbc',
-         "NAME": "hr_portal_django",
-         "USER": "hr_portal",
-         "PASSWORD": "Kbsvv@123",
-         "HOST": "172.16.0.14",
-         "PORT": "",
-         "Trusted_Connection=Yes"
-         "OPTIONS":{
-             "driver":'ODBC Driver 13 for sql Server'
-         },
-     },
- }
-
-
+    "default": {
+        'ENGINE': 'sql_server.pyodbc',
+        "NAME": "hr_portal_django",
+        "USER": "hr_portal",
+        "PASSWORD": "Kbsvv@123",
+        "HOST": "172.16.0.14",
+        "PORT": "",
+        "Trusted_Connection=Yes"
+        "OPTIONS": {
+            "driver": 'ODBC Driver 13 for sql Server'
+        },
+    },
+}
 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
@@ -145,46 +139,42 @@ USE_L10N = True
 
 USE_TZ = True
 
-
-
-
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-LOGIN_REDIRECT_URL = "home/"   # On succesful log-in the user will be sent here
-LOGOUT_REDIRECT_URL ="index/"
+LOGIN_REDIRECT_URL = "home/"  # On succesful log-in the user will be sent here
+LOGOUT_REDIRECT_URL = "index/"
 
-
-
-CRISPY_TEMPLATE_PACK="bootstrap4"
+CRISPY_TEMPLATE_PACK = "bootstrap4"
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.0/howto/static-files/
 
 # Physical system path where the static files are stored.
-#STATIC_ROOT= os.path.join(BASE_DIR,'static/')
+# STATIC_ROOT= os.path.join(BASE_DIR,'static/')
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR,'static')
+    os.path.join(BASE_DIR, 'static')
 ]
 STATIC_ROOT = os.path.join(BASE_DIR, 'assets').replace('\\', '/')
 # URL that your STATIC files will be accessible through the browser.
 
 
-MEDIA_URL='/media/'
-MEDIA_ROOT=os.path.join(BASE_DIR,'media/')
-
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
 
 from django.conf.locale.es import formats as es_formats
-
-es_formats.DATE_FORMAT = 'd-m-y'   # For saving the date in specific format
+es_formats.DATE_FORMAT = 'd-m-y'  # For saving the date in specific format
 
 
 # Code for setting up the mail server
-#EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+# EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_USE_TLS = True
 EMAIL_PORT = 587
-EMAIL_HOST_USER = 'prathameshbhuskade.pr17@gmail.com'
-EMAIL_HOST_PASSWORD = 'jplrnbnaazruyrhn'
+EMAIL_HOST_USER = 'python@iitms.co.in'
+EMAIL_HOST_PASSWORD = 'twosnakes'
+
+# EMAIL_HOST_USER = 'prathameshbhuskade.pr17@gmail.com'
+# EMAIL_HOST_PASSWORD = 'jplrnbnaazruyrhn'

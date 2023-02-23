@@ -55,7 +55,7 @@ class recruitment_master(models.Model):
         ('Aurangabad', 'Aurangabad'),
     )
 
-    requestor_name = models.CharField(max_length=30)
+    requestor_name = models.CharField(max_length=255)
     project_name = models.CharField(max_length=30, default='Not Inserted')
     department = models.CharField(max_length=30,blank=True, null=True, choices=department_choice)
     position = models.CharField(max_length=30)
@@ -71,9 +71,14 @@ class recruitment_master(models.Model):
     class Meta:
         verbose_name_plural = "Recruitment Master"
     # Method to show name of an object in the database (Django admin pannel and sql database)
+
     def __str__(self):
         return 'Raised By: ' + self.requestor_name
 
+    def save(self, *args, **kwargs):
+        # Capitalize the first letter of each word in the requestor name before saving
+        self.requestor_name = ' '.join(word.capitalize() for word in self.requestor_name.split())
+        super().save(*args, **kwargs)
 
 
 
@@ -89,12 +94,12 @@ class document(models.Model):
     Degree_Certificate = models.FileField()
     PG_Certificate = models.FileField()
     College_TC = models.FileField()
-    Passport_Size_Photograph =  models.FileField()
+    Passport_Size_Photograph = models.FileField()
     Casual_Photograph = models.FileField()
     Bank_Passbook = models.FileField()
     Internship_Certificate = models.FileField()
-    Experience_Certificate =  models.FileField()
-    Last_3_Salary_Slips =  models.FileField()
+    Experience_Certificate = models.FileField()
+    Last_3_Salary_Slips = models.FileField()
     Form_16 = models.FileField()
     Passport = models.FileField()
     Covid_Vaccination_Certificate = models.FileField()
@@ -153,6 +158,11 @@ class candidate_master(models.Model):
     current_ctc = models.CharField(max_length=50,default='null')
     expected_ctc = models.CharField(max_length=50,default='null')
     ready_to_relocate = models.CharField(max_length=10)
+    round_one = models.CharField(default='Not Schedule', max_length=100)
+    round_two = models.CharField(default='Not Schedule', max_length=100)
+    machine_test = models.CharField(default='Not Schedule', max_length=100)
+    hr_round = models.CharField(default='Not Schedule', max_length=100)
+
 
     class Meta:
         verbose_name_plural = "Candidate Master"
@@ -264,6 +274,7 @@ class scheduled_interview(models.Model):
     date = models.DateField(blank=True,null=True)
     position = models.CharField(max_length=100)
     time = models.TimeField(default=timezone.now())
+
 
 
     class Meta:

@@ -72,7 +72,7 @@ urlpatterns = [
     path('hr_view/selected_applicants/remove/<int:id>', views.remove_selected_candidate_interview, name='remove_selected_candidate_interview'),
     path('hr_view/scheduled_interview/remove/<int:id>', views.remove_scheduled_interview, name='remove_scheduled_interview'),
 
-    # testing path
+    # testing path local
     path('test/', views.test, name='test'),
 
 

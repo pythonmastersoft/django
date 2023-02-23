@@ -40,7 +40,7 @@ from django.contrib.messages import error
 # Create your views here.
 
 
-# --------------- Creating decorators to check if the user belongs to the certain group or not -------------------
+# --------------- Creating decorators to check if the user belongs to the certain group or not ---------------------
 
 def is_teamlead(user):
     return user.groups.filter(name='Team_Leads').exists()
@@ -54,7 +54,7 @@ def is_Administrator(user):
     return user.groups.filter(name='Administrator').exists()
 
 
-# ----------------------------------------------------------------------------------------------------------------
+#-------------------------------------------------------------------------------------------------------------------
 
 # @user_passes_test(is_teamlead)
 @login_required
@@ -232,6 +232,7 @@ def hr_raise_requirement(request):
             print(position)
             print(department)
 
+
             data = recruitment_master( department=department,project_name=project_name,
                                position=position, type_of_resource=type_of_resource,
                                posting_location=posting_location, experience_required=experience_required,
@@ -240,16 +241,17 @@ def hr_raise_requirement(request):
             data.save()
             print("Sending Mail....")
 
-            # Code for sending the mail
-            # send_mail(
-            #     'Requiremnt Raised ',
-            #     'tesing the mail function.',
-            #     'prathameshbhuskade.pr17@gmail.com',#Sender of the mail
-            #     ['prathameshbhuskade.pr17@gmail.com', 'prathameshbhuskade@gmail.com'],
-            #     # HR Mail id and admin mail id (Reciever)
-            #     fail_silently=False
-            # )
+           # Code for sending the mail
+            send_mail(
+                'Requiremnt Raised ',
+                'tesing the mail function.',
+                'python@iitms.co.in',#Sender of the mail
+                ['prathameshbhuskade.pr17@gmail.com', 'prathameshbhuskade@gmail.com'],
+                # HR Mail id and admin mail id (Reciever)
+                fail_silently=False
+            )
 
+            print('Mail Send')
             return render(request, 'HR/home.html')
 
         return render(request, 'HR/home.html')
@@ -718,7 +720,28 @@ def round_two_interview_scheduling(request, id):
         print("Selected Interviewer Name", interviewer)
         print("Interviewer Mail", interviewer_mail)
 
-        scheduled_interview.objects.filter(id=id).update(name=name, email=email, contact_no=contact_no, mode=mode,google_meet_link=google_meet_link, date=date, time=time, department=department,round_two=round_two,position=position)
+        rows_updated = scheduled_interview.objects.filter(id=id).update(name=name, email=email, contact_no=contact_no, mode=mode,google_meet_link=google_meet_link, date=date, time=time, department=department,round_two=round_two,position=position)
+
+        # To update the Interview status in cnadidate msater table
+        if rows_updated > 0 and candidate_master.objects.filter(your_name=name, department=department).exists():
+            try:
+                candidate = candidate_master.objects.get(your_name=name, department=department)
+                print("Candidate Found: ", candidate)
+
+                # Update the candidate's field
+                candidate.round_one = "Selected"
+                candidate.round_two = "Selected"
+
+                # Save the updated candidate
+                candidate.save()
+
+                print("Candidate Updated ", candidate)
+
+            except candidate_master.DoesNotExist:
+                print("Candidate Not Found")
+        else:
+            print("Not Updated")
+        # To Save the updated data status in the master table field
 
 
         # data = scheduled_interview(name=name, email=email, contact_no=contact_no, mode=mode,
@@ -846,9 +869,29 @@ def round_three_machine_test_scheduling(request, id):
         print("Selected Interviewer Name", interviewer)
         print("Interviewer Mail", interviewer_mail)
 
-        scheduled_interview.objects.filter(id=id).update(name=name, email=email, contact_no=contact_no, mode=mode,
+        rows_updated=scheduled_interview.objects.filter(id=id).update(name=name, email=email, contact_no=contact_no, mode=mode,
                                                          google_meet_link=google_meet_link, date=date, time=time,
                                                          department=department, machine_test=machine_test, position=position)
+
+        if rows_updated > 0 and candidate_master.objects.filter(your_name=name, department=department).exists():
+            try:
+                candidate = candidate_master.objects.get(your_name=name, department=department)
+                print("Candidate Found: ", candidate)
+
+                # Update the candidate's field
+                candidate.machine_test = "Selected"
+
+                # Save the updated candidate
+                candidate.save()
+
+                print("Candidate Updated ", candidate)
+
+            except candidate_master.DoesNotExist:
+                print("Candidate Not Found")
+        else:
+            print("Not Updated")
+
+
 
         # data = scheduled_interview(name=name, email=email, contact_no=contact_no, mode=mode,
         #                            google_meet_link=google_meet_link, date=date, time=time, department=department,
@@ -975,10 +1018,30 @@ def round_four_hr_round_scheduling(request, id):
         print("Selected Interviewer Name", interviewer)
         print("Interviewer Mail", interviewer_mail)
 
-        scheduled_interview.objects.filter(id=id).update(name=name, email=email, contact_no=contact_no, mode=mode,
+        rows_updated=scheduled_interview.objects.filter(id=id).update(name=name, email=email, contact_no=contact_no, mode=mode,
                                                          google_meet_link=google_meet_link, date=date, time=time,
                                                          department=department, hr_round=hr_round,
                                                          position=position)
+
+
+        if rows_updated > 0 and candidate_master.objects.filter(your_name=name, department=department).exists():
+            try:
+                candidate = candidate_master.objects.get(your_name=name, department=department)
+                print("Candidate Found: ", candidate)
+
+                # Update the candidate's field
+                candidate.hr_round = "Selected"
+
+                # Save the updated candidate
+                candidate.save()
+
+                print("Candidate Updated ", candidate)
+
+            except candidate_master.DoesNotExist:
+                print("Candidate Not Found")
+        else:
+            print("Not Updated")
+
 
         # data = scheduled_interview(name=name, email=email, contact_no=contact_no, mode=mode,
         #                            google_meet_link=google_meet_link, date=date, time=time, department=department,
@@ -1298,5 +1361,6 @@ def remove_scheduled_interview(request,id):
         return redirect('')
     else:
         pass
+
 
 
