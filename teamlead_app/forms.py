@@ -3,8 +3,6 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 from django.forms import ModelForm, DateInput, TextInput
 
-from teamlead_app.models import selected_candidate_interview
-
 
 class UserRegistrationForm(UserCreationForm):
     group = (
@@ -17,7 +15,6 @@ class UserRegistrationForm(UserCreationForm):
     email = forms.EmailField()
     phone_number = forms.CharField(widget=TextInput(attrs={'type': 'number'}))
     user_group = forms.ChoiceField(choices = group)
-
 
     class Meta:
         model = User

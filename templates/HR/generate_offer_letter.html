@@ -9,10 +9,9 @@
                <h4>Generate Offer Letter</h4>
            </div>
            <div class="card-body">
-        <form method="POST" action="" enctype="multipart/form-data" onsubmit="f1()">
+          {% for obj in data %}
+        <form method="POST" action="/hr_view/send_offer_mail/{{obj.id}}" enctype="multipart/form-data" onsubmit="f1()">
              {% csrf_token %}
-
-            {% for obj in data %}
 
               <div class="form-group mt-3">
                 <label for="name">Name</label>
@@ -74,5 +73,5 @@
        </div>
  </div>
 
-    {% endblock %}
+{% endblock %}
 

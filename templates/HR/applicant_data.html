@@ -6,6 +6,7 @@
 
 {% block content %}
 
+
 <div class="row">
     <div class="col-12">
         <div class="card">
@@ -14,7 +15,7 @@
             </div>
             <div class="card-body p-0">
                 <div class="table-responsive">
-                <form method="post">
+
                     <table id="choose-address-table" class="ui-widget ui-widget-content table table-striped ">
                         <tr>
                     <!--    <th style="text-align: center">Sl.No</th>-->
@@ -29,6 +30,7 @@
                             <th style="text-align: center">Expected LPA</th>
                             <th style="text-align: center">Contact Number</th>
                             <th style="text-align: center">Resume</th>
+                            <th style="text-align: center">Status</th>
                             <th style="text-align: center">Action</th>
                         </tr>
 
@@ -47,24 +49,40 @@
                             <td style="text-align: center" class="nr">{{obj.current_ctc}}</td>
                             <td style="text-align: center" class="nr">{{obj.expected_ctc}}</td>
                             <td style="text-align: center" class="align-middle nr">{{obj.mobile_number}}</td>
-                            <td style="text-align: center" class="nr"><a class="btn btn-primary" href="/get_pdf2/{{obj.id}}">View</a></td>
+                            <td><a class="btn btn-primary" href="/get_pdf3/{{obj.id}}">View</a></td>
+
+
+                            <td>
+                            <form method="POST" action="/hr_view/update_status/{{obj.id}}">
+                            {% csrf_token %}
+                            <select name="status" id="status" class="btn btn-primary">
+                                <option value="Select an option" disabled selected>Select an option</option>
+                                <option value="Relevant">Relevant</option>
+                                <option value="Irrelevant">Irrelevant</option>
+                                <option value="Position on Hold">Position on Hold</option>
+                                <option value="Position Closed">Position Closed</option>
+                            </select>
+                            </td>
+                            <td>
+                                <input class="btn btn-primary" type="submit" value="Update">
+                            </td>
+                            </form>
+
+
                             <!--<td><a onclick="function()" class="btn btn-primary use-address">Select</a></td>-->
-                            <td style="text-align: center"><a href="/hr_view/showapplicants/{{obj.id}}" class="btn btn-primary use-address">Select</a></td>
+
+
                         </tr>
                         {% endfor %}
                     </table>
-                    </form>
+
                 </div>
             </div>
         </div>
     </div>
 </div>
-
 <hr>
 
 
-
-
-<!--    <p id="demo"></p>-->
-
 {% endblock %}
+

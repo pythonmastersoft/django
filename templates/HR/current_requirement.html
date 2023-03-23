@@ -7,6 +7,48 @@
     <div class="col-12">
         <div class="card">
             <div class="card-header">
+                <h4>Requirement to be Approved</h4>
+            </div>
+            <div class="card-body p-0">
+                <div class="table-responsive">
+                <form>
+                    {% csrf_token %}
+                    <table id="a" class="ui-widget ui-widget-content table table-striped ">
+                        <tr>
+<!--                            <th style="text-align: center">Sl.No</th>-->
+                            <th style="text-align: center">Raised On</th>
+                            <th style="text-align: center">Raised By</th>
+                            <th style="text-align: center">Department</th>
+                            <th style="text-align: center">Approve Requiremnt</th>
+                            <th style="text-align: center">Reject Requirement</th>
+
+                        </tr>
+                        {% for obj in all_requirement_raised %}
+                        <tr>
+                            <td style="text-align: left" class="nr"> {{obj.created_at}}</td>
+                            <td style="text-align: left" class="nr"> {{obj.requestor_name}}</td>
+                            <td style="text-align: center" class="align-middle nr">{{obj.department}}</td>
+                            <td style="text-align: center"><a href="/approve_requirement/{{obj.id}}"><button type="button" class="btn btn-success">Approve</button></a></td>
+                            <td style="text-align: center"><a href="reject_requirement/{{obj.id}}"><button type="button" class="btn btn-danger">Reject</button></a></td>
+                            <td id=""></td>
+<!--                        <td><input class="btn btn-primary"  value="Add Budget" /></td>-->
+
+                        {% endfor %}
+                    </table>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-header">
                 <h4>Current Openings</h4>
             </div>
             <div class="card-body p-0">

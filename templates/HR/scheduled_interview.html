@@ -3,9 +3,7 @@
 
 {% load static%}
 
-
 {% block content %}
-
 
 <!--table showing the data of candidate for next round-->
 {% if scheduled_interview_all_object %}
@@ -25,12 +23,18 @@
                             <th style="text-align: center">Candidate Name</th>
                             <th style="text-align: center">Department</th>
                             <th style="text-align: center">Position</th>
-                            <th style="text-align: center">Round 1</th>
-                            <th style="text-align: center">Round 2</th>
-                            <th style="text-align: center">Machine Test</th>
-                            <th style="text-align: center">HR Round</th>
-                            <th style="text-align: center">Offer Letter </th>
-                            <th style="text-align: center">Action </th>
+                            <th style="text-align: center">Status</th>
+                            <th style="text-align: center">Action</th>
+                            <th style="text-align: center">Current Status</th>
+                            <th style="text-align: center">Schedule Interview</th>
+                            <th style="text-align: center">Give Feedback</th>
+                            <th style="text-align: center">View Feedback</th>
+                            <th style="text-align: center">Offer Mail</th>
+                            <th style="text-align: center">Offer Letter</th>
+                            <th style="text-align: center">Appointment Letter</th>
+                            <th style="text-align: center">Document PDF</th>
+                            <th style="text-align: center">Remove Entry</th>
+
                         </tr>
 
                         {% for obj in scheduled_interview_all_object %}
@@ -40,36 +44,60 @@
                             <td style="text-align: center" class="align-middle nr">{{obj.department}}</td>
                             <td style="text-align: center" class="align-middle nr">{{obj.position}}</td>
 
+                            <td>
+                            <form method="POST" action="/hr_view/status_update/{{obj.id}}">
+                            {% csrf_token %}
+                            <select name="status" id="status" class="btn btn-primary">
+                                <option value="Select an option" disabled selected>Relevant</option>
+                                <option value="Not Responding">Not Responding</option>
+                                <option value="Interview 1">Interview 1</option>
+                                <option value="Interview 1- Reject">Interview 1- Reject</option>
+                                <option value="Interview 2">Interview 2</option>
+                                <option value="Interview 2 - Reject">Interview 2 - Reject</option>
+                                <option value="Interview 3">Interview 3</option>
+                                <option value="Interview 3 - Reject">Interview 3 - Reject</option>
+                                <option value="Additional Round">Additional Round</option>
+                                <option value="Additional Round - Reject">Additional Round - Reject</option>
+                                <option value="Machine Test">Machine Test</option>
+                                <option value="Machine Test - Reject">Machine Test - Reject</option>
+                                <option value="HR Round">HR Round </option>
+                                <option value="HR Round Select">HR Round Select</option>
+                                <option value="HR Round - Reject">HR Round - Reject</option>
+                                <option value="Candidature on Hold">Candidature on Hold</option>
+                                <option value="Position on Hold">Position on Hold</option>
+                                <option value="Offer Revoked">Offer Revoked</option>
+                                <option value="Offer Rolled Out">Offfer Rolled Out</option>
+                                <option value="Offer Accepted">Offer Accepted</option>
+                                <option value="Ditched">Ditched</option>
+                                <option value="Got Another Offer">Got Another Offer</option>
+                                <option value="Joined">Joined</option>
 
-                            {% if obj.round == 'Round 1' %}
-                            <td><button type="button" class="btn btn-success">Scheduled</button></td>
-                             {% else %}
-                            <td style="text-align: center"><button class="btn btn-primary">{{obj.round_two}}</button></td>
-                            {% endif %}
+                            </select>
+                            </td>
+                            <td>
+                                <input class="btn btn-primary" type="submit" value="Update">
+                            </td>
+                            </form>
+                            <td style="text-align: center">{{obj.status}}</td>
 
-                            {% if obj.round_two == 'Round 2' %}
-                            <td style="text-align: center"><button class="btn btn-success">Scheduled<span class="badge badge-transparent"></span></button></td>
+
+                            <td style="text-align: center"><a href="/hr_view/round_scheduling/{{obj.id}}"><button class="btn btn-primary">Schedule</button></a></td>
+                            <td style="text-align: center"><a href="/feedback/{{obj.id}}"><button class="btn btn-warning">Feedback</button></a></td>
+                            <td style="text-align: center"><a href="/feedback_view/{{obj.id}}"><button class="btn btn-primary">View</button></a></td>
+                            {% if obj.status == 'HR Round Select'%}
+                                <td style="text-align: center"><a href="/hr_view/send_offer_mail/{{obj.id}}"><button class="btn btn-success">Generate</button></a></td>
+                                <td style="text-align: center"><a href="/hr_view/generate_offer_letter/{{obj.id}}"><button class="btn btn-success">Generate</button></a></td>
+                                <td style="text-align: center"><a href="/hr_view/generate_appointment_letter/{{obj.id}}"><button class="btn btn-success">Generate</button></a></td>
                             {% else %}
-                            <td style="text-align: center"><a href="/hr_view/nextround_interview_scheduling/{{obj.id}}"><button class="btn btn-primary">{{obj.round_two}}</button></a></td>
+                                <td style="text-align: center"><button disabled class="btn btn-primary">Generate</button></td>
+                                <td style="text-align: center"><button disabled class="btn btn-primary">Generate</button></td>
+                                <td style="text-align: center"><button disabled class="btn btn-primary">Generate</button></td>
                             {% endif %}
-
-                            {% if obj.machine_test == 'Machine Test' %}
-                            <td style="text-align: center"><button class="btn btn-success">Scheduled</button></td>
-                             {% else %}
-                            <td style="text-align: center"><a href="/hr_view/machine_test_interview_scheduling/{{obj.id}}"><button class="btn btn-primary">{{obj.machine_test}}</button></a></td>
-                              {% endif %}
-
-                            {% if obj.hr_round == 'HR Round' %}
-                            <td style="text-align: center"><button class="btn btn-success">Scheduled</button></td>
-                            {% else %}
-                            <td style="text-align: center"><a href="/hr_view/HR_round_interview_scheduling/{{obj.id}}"><button class="btn btn-primary">{{obj.hr_round}}</button></a></td>
-                            {% endif %}
-                            <td style="text-align: center"><a href="/hr_view/generate_offer_letter/{{obj.id}}"><button class="btn btn-primary">Generate Offer Letter</button></a></td>
-
                             <!--<td><button class="btn btn-primary" onclick="removeRow(this)">Remove</button></td>-->
-                            <td><a href="hr_view/scheduled_interview/remove/{{obj.id}}"><button class="btn btn-danger">Remove</button></a></td>
+<!--                            <td><a href="hr_view/scheduled_interview/remove/{{obj.id}}"><button class="btn btn-danger">Remove</button></a></td>-->
+                             <td style="text-align: center"><a href="/hr_view/round_scheduling/{{obj.id}}"><button class="btn btn-primary">View</button></a></td>
+                             <td style="text-align: center"><a href="/hr_view/scheduled_interview/remove/{{obj.id}}"><button class="btn btn-danger">Remove</button></a></td>
                         </tr>
-
                         {% endfor %}
                     </table>
                 </div>

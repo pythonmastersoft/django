@@ -65,7 +65,7 @@
                       <option selected>Resource Type</option>
                       <option>Payroll</option>
                       <option>Intern</option>
-
+                      <label style="margin-bottom: .5rem;"> No of Positions:</label>
                       </select>
                     </div>
                    </div>
@@ -111,9 +111,21 @@
 
                   </div>
                 </form>
-                  </div>
+              </div>
               </div>
             </div>
+
+{% if messages %}
+    <ul class="messages">
+        {% for message in messages %}
+            <li {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+        {% endfor %}
+    </ul>
+{% endif %}
+
+
+
+
 
 
 <!--Script for getting the postion on on selected departmewnt in raise requirement form-->

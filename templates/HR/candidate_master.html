@@ -26,7 +26,33 @@
                             <th style="text-align: center">Current LPA</th>
                             <th style="text-align: center">Expected LPA</th>
                             <th style="text-align: center">Contact Number</th>
+<!--                            <th style="text-align: center">Round 1</th>-->
+<!--                            <th style="text-align: center">Round 2</th>-->
+<!--                            <th style="text-align: center">Machine Test</th>-->
+<!--                        <th style="text-align: center">HR Round</th>-->
+                            <th style="text-align: center">Status</th>
                             <th style="text-align: center">Resume</th>
+                            <th style="text-align: center">Address Proof</th>
+                            <th style="text-align: center">PAN Card</th>
+                            <th style="text-align: center">Photo Identity Proof</th>
+                            <th style="text-align: center">SSC Certificate</th>
+                            <th style="text-align: center">HSC Certificate</th>
+                            <th style="text-align: center">Diploma Certificate</th>
+                            <th style="text-align: center">Degree Certificate</th>
+                            <th style="text-align: center">PG Certificate</th>
+                            <th style="text-align: center">College TC</th>
+                            <th style="text-align: center">Passport Size Photo</th>
+                            <th style="text-align: center">Bank Passbook</th>
+                            <th style="text-align: center">Internship Certificate</th>
+                            <th style="text-align: center">Experience Certificate</th>
+                            <th style="text-align: center">Last 3 Salary Slips</th>
+                            <th style="text-align: center">Form 16</th>
+                            <th style="text-align: center">Passport</th>
+                            <th style="text-align: center">Covid Vaccination Certificate</th>
+                            <th style="text-align: center">Medical Certificate</th>
+                            <th style="text-align: center">Police Verification Document</th>
+
+
 
                         </tr>
 
@@ -45,8 +71,57 @@
                             <td style="text-align: center" class="nr">{{obj.current_ctc}}</td>
                             <td style="text-align: center" class="nr">{{obj.expected_ctc}}</td>
                             <td style="text-align: center" class="align-middle nr">{{obj.mobile_number}}</td>
+
+
+<!--                            {% if obj.round_one == 'Scheduled' %}-->
+<!--                            <td style="background-color: #32CD32; color: white; padding: 5px 10px; border-radius: 5px; text-align: center;">Scheduled</td>-->
+<!--                             {% else %}-->
+<!--                            <td style="text-align: center;  background-color: #333333; color: white; padding: 5px 10px; border-radius: 5px;">Not Scheduled</td>-->
+<!--                            {% endif %}-->
+
+<!--                            {% if obj.round_two == 'Scheduled' %}-->
+<!--                            <td style="background-color: #32CD32; color: white; padding: 5px 10px; border-radius: 5px; text-align: center;">Scheduled</td>-->
+<!--                             {% else %}-->
+<!--                            <td style="text-align: center; background-color: #333333; color: white; padding: 5px 10px; border-radius: 5px;">Not Scheduled</td>-->
+<!--                            {% endif %}-->
+
+<!--                            {% if obj.machine_test == 'Scheduled' %}-->
+<!--                            <td style="background-color: #32CD32; color: white; padding: 5px 10px; border-radius: 5px; text-align: center;">Scheduled</td>-->
+<!--                             {% else %}-->
+<!--                            <td style="text-align: center; background-color: #333333; color: white; padding: 5px 10px; border-radius: 5px;">Not Scheduled</td>-->
+<!--                            {% endif %}-->
+
+<!--                            {% if obj.hr_round == 'Scheduled' %}-->
+<!--                            <td style="background-color: #32CD32; color: white; padding: 5px 10px; border-radius: 5px; text-align: center;">Scheduled</td>-->
+<!--                             {% else %}-->
+<!--                            <td style="text-align: center; background-color: #333333; color: white; padding: 5px 10px; border-radius: 5px;">Not Scheduled</td>-->
+<!--                            {% endif %}-->
+
+
+                            <td style="text-align: center" class="align-middle nr">{{obj.status}}</td>
+
                             <td style="text-align: center" class="nr"><a class="btn btn-primary" href="/get_pdf2/{{obj.id}}">View</a></td>
+                            <td style="text-align: center" class="nr"><a class="btn btn-primary" href="/get_address_proof/{{obj.id}}">View</a></td>
+                            <td style="text-align: center" class="nr"><a class="btn btn-primary" href="/get_pancard/{{obj.id}}">View</a></td>
+                            <td style="text-align: center" class="nr"><a class="btn btn-primary" href="/get_photo_identity_proof/{{obj.id}}">View</a></td>
+                            <td style="text-align: center" class="nr"><a class="btn btn-primary" href="/get_ssc_certificate/{{obj.id}}">View</a></td>
+                            <td style="text-align: center" class="nr"><a class="btn btn-primary" href="/get_hsc_certificate/{{obj.id}}">View</a></td>
+                            <td style="text-align: center" class="nr"><a class="btn btn-primary" href="/get_diploma_certificate/{{obj.id}}">View</a></td>
+                            <td style="text-align: center" class="nr"><a class="btn btn-primary" href="/get_degree_certificate/{{obj.id}}">View</a></td>
+                            <td style="text-align: center" class="nr"><a class="btn btn-primary" href="/get_pg_certificate/{{obj.id}}">View</a></td>
+                            <td style="text-align: center" class="nr"><a class="btn btn-primary" href="/get_college_tc/{{obj.id}}">View</a></td>
+                            <td style="text-align: center" class="nr"><a class="btn btn-primary" href="/get_passport_size_photo/{{obj.id}}">View</a></td>
+                            <td style="text-align: center" class="nr"><a class="btn btn-primary" href="/get_bank_passbook/{{obj.id}}">View</a></td>
+                            <td style="text-align: center" class="nr"><a class="btn btn-primary" href="/get_internship_certificate/{{obj.id}}">View</a></td>
+                            <td style="text-align: center" class="nr"><a class="btn btn-primary" href="/get_experience_certificate/{{obj.id}}">View</a></td>
+                            <td style="text-align: center" class="nr"><a class="btn btn-primary" href="/get_last_salary_slip/{{obj.id}}">View</a></td>
+                            <td style="text-align: center" class="nr"><a class="btn btn-primary" href="/get_form_16/{{obj.id}}">View</a></td>
+                            <td style="text-align: center" class="nr"><a class="btn btn-primary" href="/get_passport/{{obj.id}}">View</a></td>
+                            <td style="text-align: center" class="nr"><a class="btn btn-primary" href="/get_covid_vaccination_certificate/{{obj.id}}">View</a></td>
+                            <td style="text-align: center" class="nr"><a class="btn btn-primary" href="/get_medical_certificate/{{obj.id}}">View</a></td>
+                            <td style="text-align: center" class="nr"><a class="btn btn-primary" href="/get_police_verification_document/{{obj.id}}">View</a></td>
                             <!--<td><a onclick="function()" class="btn btn-primary use-address">Select</a></td>-->
+
 
                         </tr>
                         {% endfor %}
